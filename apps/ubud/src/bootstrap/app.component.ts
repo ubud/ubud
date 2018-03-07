@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'ubut-root',
+    selector: 'ubud-root',
     template: `
         <!--The content below is only a placeholder and can be replaced.-->
         <div style="text-align:center">
@@ -26,5 +26,5 @@ import { Component } from '@angular/core';
     styles: [],
 })
 export class AppComponent {
-    public title: string = 'ubut';
+    public title: string = 'ubud';
 }

@@ -119,13 +119,13 @@
         "directive-selector": [
             true,
             "attribute",
-            "ubut",
+            "ubud",
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
-            "ubut",
+            "ubud",
             "kebab-case"
         ],
         "no-output-on-prefix": true,
