@@ -5,8 +5,8 @@
   },
   "apps": [
     {
-      "root": "app",
-      "outDir": "www",
+      "root": "apps/ubut/src",
+      "outDir": "dist/ubut",
       "assets": [
         "assets",
         "favicon.ico"
