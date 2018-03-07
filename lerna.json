@@ -1,0 +1,8 @@
+{
+    "lerna": "2.9.0",
+    "packages": [
+        "apps/ubud/src",
+        "packages/**/*"
+    ],
+    "version": "0.0.1"
+}
