@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "styles/variables";
+@import "styles/mixins";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/fa-regular";
+@import "~@fortawesome/fontawesome-free/scss/fa-solid";
+@import "styles/animations";
+@import "styles/components";
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+}
+
+a {
+    outline: none;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+

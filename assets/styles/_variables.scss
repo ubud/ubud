@@ -1,0 +1,83 @@
+@import "~bootstrap/scss/functions";
+
+$white:    #fff !default;
+$gray-100: #f1f3f5 !default;
+$gray-200: #f4f5f7 !default;
+$gray-300: #eee !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #0747A6 !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #DEEBFF !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$colors: () !default;
+$colors: map-merge((
+        "blue":       $blue,
+        "indigo":     $indigo,
+        "purple":     $purple,
+        "pink":       $pink,
+        "red":        $red,
+        "orange":     $orange,
+        "yellow":     $yellow,
+        "green":      $green,
+        "teal":       $teal,
+        "cyan":       $cyan,
+        "white":      $white,
+        "gray":       $gray-600,
+        "gray-dark":  $gray-800
+), $colors);
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+        "primary":    $primary,
+        "secondary":  $secondary,
+        "success":    $success,
+        "info":       $info,
+        "warning":    $warning,
+        "danger":     $danger,
+        "light":      $light,
+        "dark":       $dark
+), $theme-colors);
+
+$enable-shadows: true !default;
+$border-color: #e5e5e5 !default;
+
+//Dropdowns
+$dropdown-border-width:         0 !default;
+$dropdown-border-color:         #e5e5e5 !default;
+$dropdown-item-padding-y:       8px !default;
+$dropdown-link-hover-bg:        $gray-200 !default;
+$dropdown-link-active-bg:       theme-color("info") !default;
+$dropdown-link-active-color:    theme-color("primary");
+$dropdown-box-shadow:           0 4px 8px -2px rgba(9,30,66,.25), 0 0 1px rgba(9,30,66,.31) !default;;

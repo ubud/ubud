@@ -1,7 +1,8 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "outDir": "./dist/out-tsc",
+        "outDir": "./dist",
+        "baseUrl": "./",
         "sourceMap": true,
         "declaration": false,
         "moduleResolution": "node",
@@ -15,6 +16,9 @@
         "lib": [
             "es2017",
             "dom"
-        ]
+        ],
+        "paths": {
+            "@ubud/*": ["src/@ubud/*"]
+        }
     }
 }

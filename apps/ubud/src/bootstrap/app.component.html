@@ -1,0 +1,69 @@
+<ubud-sidebar-layout sidebarSize="250px" dockSize="70px">
+    <img height="35" sidebarLogo src="/assets/images/logo-white.png" title="Ubud" />
+    <img height="30" sidebarLogoDocked src="/assets/images/logo-symbol-white.png" title="Ubud" />
+    <img height="30" navbarLogo src="/assets/images/logo-symbol.png" title="Ubud" />
+
+    <div sidebarMenu>
+        <ubud-sidebar-menu title="Menu 1">
+            <ubud-sidebar-menu-item title="Menu 1.1" iconClass="fa fa-adjust"></ubud-sidebar-menu-item>
+            <ubud-sidebar-menu-item title="Menu 1.2" iconClass="fa fa-adjust">
+                <ubud-sidebar-menu>
+                    <ubud-sidebar-menu-item href="https://google.com">
+                        <ng-template ubudSidebarMenuItem>
+                            <i class="fa fa-apple"></i>
+                            Menu 1.2.1
+                        </ng-template>
+                    </ubud-sidebar-menu-item>
+                    <ubud-sidebar-menu-item title="Menu 1.2.2" iconClass="fa fa-adjust"></ubud-sidebar-menu-item>
+                </ubud-sidebar-menu>
+            </ubud-sidebar-menu-item>
+            <ubud-sidebar-menu-item title="Menu 1.3"></ubud-sidebar-menu-item>
+        </ubud-sidebar-menu>
+
+        <ubud-sidebar-menu title="Menu 2" [collapsible]="false">
+            <ubud-sidebar-menu-item title="Menu 2.1"></ubud-sidebar-menu-item>
+            <ubud-sidebar-menu-item title="Menu 2.2"></ubud-sidebar-menu-item>
+        </ubud-sidebar-menu>
+    </div>
+
+    <div sidebarMenuDocked>
+        <ubud-sidebar-menu>
+            <ubud-sidebar-menu-item ubudTooltip="Profile" tooltipPlacement="right" iconClass="fa fa-user-circle"></ubud-sidebar-menu-item>
+            <ubud-sidebar-menu-item ubudTooltip="Balance" tooltipPlacement="right" iconClass="fa fa-balance-scale"></ubud-sidebar-menu-item>
+            <ubud-sidebar-menu-item ubudTooltip="Company" tooltipPlacement="right" iconClass="fa fa-building"></ubud-sidebar-menu-item>
+        </ubud-sidebar-menu>
+    </div>
+
+    <ul navbarMenu class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a>Left Menu</a>
+        </li>
+    </ul>
+
+    <ul navbarMenu class="navbar-nav mr-3">
+        <li class="nav-item">
+            <a ubudTooltip="Notification" tooltipPlacement="left">
+                <i class="fa fa-bell"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <ubud-user-control size="35" image="/assets/images/user-profile.jpg">
+                <div class="dropdown-menu show dropdown-menu-right">
+                    <a href="" class="dropdown-item">
+                        <i class="fa fa-cog"></i>
+                        Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">
+                        <i class="fa fa-power-off"></i>
+                        Logout
+                    </a>
+                </div>
+            </ubud-user-control>
+        </li>
+    </ul>
+
+    <div style="text-align: center">
+        <a ubudTooltip="Hello world!" tooltipPlacement="right" href="#">Demo Content</a>
+    </div>
+</ubud-sidebar-layout>

@@ -22,7 +22,12 @@
         "@angular/platform-browser-dynamic": "^5.2.0",
         "@angular/router": "^5.2.0",
         "@angular/service-worker": "^5.2.0",
+        "@fortawesome/fontawesome-free": "~5.1.0-4",
+        "bootstrap": "~4.0.0",
         "core-js": "^2.4.1",
+        "hamburgers": "~0.9.3",
+        "ng-mediacheck": "~0.1.7",
+        "ng-sidebar": "~7.0.1",
         "rxjs": "^5.5.6",
         "zone.js": "^0.8.19"
     },

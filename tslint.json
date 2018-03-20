@@ -136,7 +136,13 @@
         "no-output-rename": true,
         "use-life-cycle-interface": true,
         "use-pipe-transform-interface": true,
-        "component-class-suffix": true,
+        "component-class-suffix": [
+            true,
+            "Layout",
+            "Page",
+            "Container",
+            "Component"
+        ],
         "directive-class-suffix": true,
         // ---- CUSTOM RULE ----
 
