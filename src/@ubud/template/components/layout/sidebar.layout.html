@@ -1,0 +1,44 @@
+<nav [class.docked]="docked" class="navbar top-navbar navbar-expand-md">
+    <div [ngStyle]="{ width: docked ? dockSize : sidebarSize }" class="navbar-header sidebar-header text-center" *ngIf="sidebarOpen">
+        <a class="navbar-brand" [routerLink]="brandRoute">
+            <ng-content *ngIf="!docked" select="[sidebarLogo]"></ng-content>
+            <ng-content *ngIf="docked" select="[sidebarLogoDocked]"></ng-content>
+        </a>
+    </div>
+
+    <a class="navbar-brand d-md-none" [routerLink]="brandRoute" *ngIf="!sidebarOpen">
+        <ng-content select="[navbarLogo]"></ng-content>
+    </a>
+
+    <ul [class.mr-auto]="small && sidebarOpen" class="navbar-nav navbar-nav-start">
+        <li class="nav-item d-md-none">
+            <button [class.is-active]="sidebarOpen" class="hamburger hamburger--spin" type="button" (click)="toggle()">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </li>
+    </ul>
+
+    <ng-content select="[navbarMenu]" *ngIf="!small || (small && !sidebarOpen)"></ng-content>
+</nav>
+
+
+<ng-sidebar-container [class.docked]="docked">
+    <ng-sidebar [dockedSize]="dockSize" [dock]="docked" [opened]="sidebarOpen" mode="push">
+        <div class="ubud-sidebar" [ngStyle]="{ width: docked ? dockSize : sidebarSize }">
+            <div class="sidebar-brand"></div>
+            <ng-content *ngIf="!docked" select="[sidebarMenu]"></ng-content>
+            <ng-content *ngIf="docked" select="[sidebarMenuDocked]"></ng-content>
+        </div>
+    </ng-sidebar>
+
+    <div ng-sidebar-content>
+        <div class="ubud-sidebar-splitter">
+            <button (click)="toggleDock()"></button>
+        </div>
+        <div class="ubud-sidebar-content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</ng-sidebar-container>

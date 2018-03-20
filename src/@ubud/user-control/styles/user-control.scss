@@ -1,0 +1,18 @@
+:host {
+    /deep/ ubud-dropdown {
+        > .dropdown {
+            line-height: normal;
+
+            [ubudDropdownToggle] {
+                display: inline-block;
+                cursor: pointer;
+
+                > img {
+                    margin-top: -5px;
+                    -webkit-transition: all .3s ease-out;
+                    transition: all .3s ease-out;
+                }
+            }
+        }
+    }
+}

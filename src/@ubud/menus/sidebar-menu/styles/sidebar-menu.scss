@@ -1,0 +1,50 @@
+@mixin disable-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+:host {
+    display: block;
+
+    > ul {
+        @include disable-select;
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        /deep/ ubud-sidebar-menu-item {
+            display: block;
+
+            > li {
+                display: block;
+
+                > a {
+                    display: table;
+                    width: 100%;
+
+                    > .sidebar-menu-item-label {
+                        display: table-cell;
+                        width: 100%;
+
+                        > i {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .sidebar-title {
+        @include disable-select;
+
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+}

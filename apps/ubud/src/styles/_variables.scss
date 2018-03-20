@@ -1,0 +1,22 @@
+@import "../../../../assets/styles/variables";
+
+// Font Awesome Path
+$fa-font-path: "assets/fonts" !default;
+
+// Navbar
+$navbar-height: 60px;
+
+// Sidebar
+$sidebar-width: 250px;
+$sidebar-margin: 15px;
+$sidebar-sub-menu-expand-bg-color: darken(theme-color("primary"), 5%);
+$sidebar-menu-over-bg-color: darken(theme-color("primary"), 10%);
+$sidebar-menu-item-padding: 12px $sidebar-margin;
+$sidebar-menu-parent-item-arrow-margin-top: 17px;
+$sidebar-title-font-size: 0.67rem;
+$sidebar-title-margin-top: 15px;
+$sidebar-title-margin-bottom: 5px;
+
+
+// Fonts
+$font-size-base: .87rem !default;
