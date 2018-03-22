@@ -15,10 +15,18 @@
         ],
         "lib": [
             "es2017",
+            "es2017.object",
             "dom"
         ],
         "paths": {
             "@ubud/*": ["src/@ubud/*"]
         }
-    }
+    },
+    "exclude": [
+        "./src/@ubud"
+    ],
+    "include": [
+        "./apps/**/*",
+        "./src/**/*"
+    ]
 }
