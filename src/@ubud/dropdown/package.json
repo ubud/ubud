@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@ubud/dropdown",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^5.2.0",
+    "@angular/core": "^5.2.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "dest": "../../../dist/dropdown"
+  }
+}

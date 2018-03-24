@@ -9,7 +9,7 @@
 
 import { Injectable } from '@angular/core';
 import { createSelector, MemoizedSelector, Store as NgrxStore } from '@ngrx/store';
-import { Message } from '@ubud/ngrx/message';
+import { Message } from './message';
 import { Observable } from 'rxjs/Observable';
 
 /**

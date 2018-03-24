@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { Reducer } from '@ubud/ngrx/reducer';
+import { Reducer } from '@ubud/ngrx';
 import { TodoState } from './state';
 
 /**

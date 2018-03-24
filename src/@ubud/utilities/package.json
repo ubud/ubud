@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@ubud/utilities",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/core": "^5.2.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "dest": "../../../dist/utilities"
+  }
+}

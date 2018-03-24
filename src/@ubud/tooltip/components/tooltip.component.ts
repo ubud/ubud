@@ -9,7 +9,7 @@
 
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 import { positionService } from '@ubud/utilities';
-import { TooltipOptions } from '@ubud/tooltip/models/tooltip-options';
+import { TooltipOptions } from '../models/tooltip-options';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

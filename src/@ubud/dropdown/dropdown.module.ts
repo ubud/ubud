@@ -9,8 +9,8 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DropdownComponent } from '@ubud/dropdown/components/dropdown.component';
-import { DropdownToggleDirective } from '@ubud/dropdown/directives/dropdown-toggle.directive';
+import { DropdownComponent } from './components/dropdown.component';
+import { DropdownToggleDirective } from './directives/dropdown-toggle.directive';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

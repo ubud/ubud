@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
-import { SidebarMenuComponent } from '@ubud/menus/sidebar-menu/components/sidebar-menu.component';
-import { SidebarMenuItemDirective } from '@ubud/menus/sidebar-menu/directives/sidebar-menu-item.directive';
+import { SidebarMenuComponent } from './sidebar-menu.component';
+import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.directive';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -17,11 +17,11 @@ import { SidebarMenuItemDirective } from '@ubud/menus/sidebar-menu/directives/si
     selector: 'ubud-sidebar-menu-item',
     template: `
         <li [ngClass]="{'parent-menu': parentMenu, 'parent-menu-expanded': !collapsed}">
-            <a *ngIf="href; else routerItem" [attr.href]="href" (click)="toggle(e)">
+            <a *ngIf="href; else routerItem" [attr.href]="href" (click)="toggle($event)">
                 <ng-container *ngTemplateOutlet="menuItem"></ng-container>
             </a>
             <ng-template #routerItem>
-                <a [routerLink]="routerLink" [routerLinkActive]="routerLinkActive" (click)="toggle(e)">
+                <a [routerLink]="routerLink" [routerLinkActive]="routerLinkActive" (click)="toggle($event)">
                     <ng-container *ngTemplateOutlet="menuItem"></ng-container>
                 </a>
             </ng-template>

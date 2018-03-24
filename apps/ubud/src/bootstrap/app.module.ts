@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 import { UbudTemplateModule } from '@ubud/template';
 import { UbudSidebarMenuModule } from '@ubud/menus';
 import { UbudTooltipModule } from '@ubud/tooltip';
-import { UbudUtilitiesModule } from '@ubud/utilities/utilities.module';
+import { UbudUtilitiesModule } from '@ubud/utilities';
 import { UbudDropdownModule } from '@ubud/dropdown';
 import { UbudUserControlModule } from '@ubud/user-control';
 import { routing } from './app.routes';

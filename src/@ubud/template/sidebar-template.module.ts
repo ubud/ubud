@@ -8,11 +8,11 @@
  */
 
 import { NgModule } from '@angular/core';
-import { SidebarLayout } from '@ubud/template/components/layout/sidebar.layout';
-import { SidebarModule } from 'ng-sidebar';
-import { NgMediacheckModule } from 'ng-mediacheck';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SidebarModule } from 'ng-sidebar';
+import { NgMediacheckModule } from 'ng-mediacheck';
+import { SidebarLayout } from './components/layout/sidebar.layout';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
