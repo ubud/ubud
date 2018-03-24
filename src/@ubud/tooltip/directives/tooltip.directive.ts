@@ -18,8 +18,8 @@ import {
     ViewContainerRef,
 } from '@angular/core';
 import { ComponentService } from '@ubud/utilities';
-import { TooltipOptions } from '@ubud/tooltip/models/tooltip-options';
-import { TooltipComponent } from '@ubud/tooltip/components/tooltip.component';
+import { TooltipOptions } from '../models/tooltip-options';
+import { TooltipComponent } from '../components/tooltip.component';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

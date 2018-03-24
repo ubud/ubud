@@ -8,7 +8,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { UbudSidebarTemplateModule } from '@ubud/template/sidebar-template.module';
+import { UbudSidebarTemplateModule } from './sidebar-template.module';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

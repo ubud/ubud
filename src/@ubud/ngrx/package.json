@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@ubud/ngrx",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/core": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "rxjs": "^5.5.6",
+    "@ngrx/effects": "~5.2.0",
+    "@ngrx/router-store": "~5.2.0",
+    "@ngrx/store": "~5.2.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts",
+      "languageLevel": [
+        "es2017",
+        "es2017.object",
+        "dom"
+      ]
+    },
+    "dest": "../../../dist/ngrx"
+  }
+}

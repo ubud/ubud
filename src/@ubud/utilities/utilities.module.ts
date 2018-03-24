@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 import { NgModule } from '@angular/core';
-import { ComponentService } from '@ubud/utilities/services/component.service';
+import { ComponentService } from './services/component.service';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

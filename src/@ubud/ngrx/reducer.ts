@@ -7,12 +7,13 @@
  * file that was distributed with this source code.
  */
 
-import { Message } from '@ubud/ngrx/message';
-import { SelfHandling } from '@ubud/ngrx/contracts/self-handling';
+import { Message } from './message';
+import { SelfHandling } from './contracts/self-handling';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
+// @dynamic
 export abstract class Reducer {
     protected abstract state: object;
 

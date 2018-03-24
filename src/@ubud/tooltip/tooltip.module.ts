@@ -9,8 +9,8 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TooltipComponent } from '@ubud/tooltip/components/tooltip.component';
-import { TooltipDirective } from '@ubud/tooltip/directives/tooltip.directive';
+import { TooltipComponent } from './components/tooltip.component';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

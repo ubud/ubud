@@ -11,3 +11,4 @@
  */
 export { ComponentService } from './services/component.service';
 export { positionService } from './services/position.service';
+export { UbudUtilitiesModule } from './utilities.module';

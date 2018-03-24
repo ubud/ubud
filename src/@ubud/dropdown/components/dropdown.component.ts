@@ -8,7 +8,7 @@
  */
 
 import { AfterContentInit, Component, ContentChild, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { DropdownToggleDirective } from '@ubud/dropdown/directives/dropdown-toggle.directive';
+import { DropdownToggleDirective } from '../directives/dropdown-toggle.directive';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

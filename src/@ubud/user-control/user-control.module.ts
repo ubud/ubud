@@ -10,7 +10,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UbudDropdownModule } from '@ubud/dropdown';
-import { UserControlComponent } from '@ubud/user-control/components/user-control.component';
+import { UserControlComponent } from './components/user-control.component';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

@@ -8,11 +8,11 @@
  */
 
 import { NgModule } from '@angular/core';
-import { SidebarMenuComponent } from '@ubud/menus/sidebar-menu/components/sidebar-menu.component';
 import { CommonModule } from '@angular/common';
-import { SidebarMenuItemComponent } from '@ubud/menus/sidebar-menu/components/sidebar-menu-item.component';
-import { SidebarMenuItemDirective } from '@ubud/menus/sidebar-menu/directives/sidebar-menu-item.directive';
 import { RouterModule } from '@angular/router';
+import { SidebarMenuComponent } from './components/sidebar-menu.component';
+import { SidebarMenuItemComponent } from './components/sidebar-menu-item.component';
+import { SidebarMenuItemDirective } from './directives/sidebar-menu-item.directive';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
