@@ -7,12 +7,11 @@
  * file that was distributed with this source code.
  */
 
-import { Effects } from '@ubud/ngrx/effect';
+import { Effects, Message } from '@ubud/ngrx';
 import { Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from './models/todo';
 import { of } from 'rxjs/observable/of';
-import { Message } from '@ubud/ngrx/message';
 import { AllTodosFetched } from './events/all-todo-fetched';
 
 /**

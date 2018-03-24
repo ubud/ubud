@@ -8,7 +8,7 @@
  */
 import { Todo } from './models/todo';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ubud/ngrx/store';
+import { Store } from '@ubud/ngrx';
 import { TodoState } from './state';
 
 /**

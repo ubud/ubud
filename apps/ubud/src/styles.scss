@@ -1,11 +1,5 @@
-@import "styles/variables";
-@import "styles/mixins";
-@import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/fa-regular";
-@import "~@fortawesome/fontawesome-free/scss/fa-solid";
-@import "styles/animations";
-@import "styles/components";
+@import "../../../assets/styles/variables";
+@import "~@ubud/bootstrap-theme/main";
 
 html,
 body {
