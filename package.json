@@ -10,6 +10,9 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "lerna:bootstrap": "lerna bootstrap --hoist --nohoist=@ubud/*",
+        "lerna:publish": "lerna publish --skip-npm",
+        "preversion": "npm run build:libs",
+        "postversion": "npm run publish:libs",
         "build:libs": "run-p build:libs:*",
         "build:libs:bootstrap-theme": "ncp ./src/@ubud/bootstrap-theme ./dist/bootstrap-theme",
         "build:libs:dropdown": "ng-packagr -p ./src/@ubud/dropdown/package.json",
@@ -18,7 +21,16 @@
         "build:libs:template": "ng-packagr -p ./src/@ubud/template/package.json",
         "build:libs:tooltip": "ng-packagr -p ./src/@ubud/tooltip/package.json",
         "build:libs:user-control": "ng-packagr -p ./src/@ubud/user-control/package.json",
-        "build:libs:utilities": "ng-packagr -p ./src/@ubud/utilities/package.json"
+        "build:libs:utilities": "ng-packagr -p ./src/@ubud/utilities/package.json",
+        "publish:libs": "run-p publish:libs:*",
+        "publish:libs:bootstrap-theme": "npm publish --prefix ./dist/bootstrap-theme",
+        "publish:libs:dropdown": "npm publish --prefix ./dist/dropdown",
+        "publish:libs:menus": "npm publish --prefix ./dist/menus",
+        "publish:libs:ngrx": "npm publish --prefix ./dist/ngrx",
+        "publish:libs:template": "npm publish --prefix ./dist/template",
+        "publish:libs:tooltip": "npm publish --prefix ./dist/tooltip",
+        "publish:libs:user-control": "npm publish --prefix ./dist/user-control",
+        "publish:libs:utilities": "npm publish --prefix ./dist/utilities"
     },
     "private": true,
     "dependencies": {
