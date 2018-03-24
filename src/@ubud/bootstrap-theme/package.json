@@ -1,8 +1,8 @@
 {
   "name": "@ubud/bootstrap-theme",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "dependencies": {
-    "bootstrap": "~4.0.0",
-    "@fortawesome/fontawesome-free": "~5.1.0-4"
+    "@fortawesome/fontawesome-free": "~5.1.0-4",
+    "bootstrap": "~4.0.0"
   }
 }

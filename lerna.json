@@ -1,8 +1,8 @@
 {
-    "lerna": "2.9.0",
-    "packages": [
-        "./",
-        "src/@ubud/**/*"
-    ],
-    "version": "0.0.1"
+  "lerna": "2.9.0",
+  "packages": [
+    "./",
+    "src/@ubud/**/*"
+  ],
+  "version": "0.1.0"
 }

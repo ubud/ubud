@@ -1,11 +1,11 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/template",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "dependencies": {
+    "hamburgers": "~0.9.3",
     "ng-mediacheck": "~0.1.7",
-    "ng-sidebar": "~7.0.1",
-    "hamburgers": "~0.9.3"
+    "ng-sidebar": "~7.0.1"
   },
   "peerDependencies": {
     "@angular/common": "^5.2.0",
