@@ -1,6 +1,6 @@
 {
     "name": "ubud-skeleton",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
@@ -47,11 +47,11 @@
         "@ngrx/router-store": "~5.2.0",
         "@ngrx/store": "~5.2.0",
         "@ngrx/store-devtools": "~5.2.0",
-        "@ubud/bootstrap-theme": "^0.1.0",
+        "@ubud/bootstrap-theme": "^1.1.0",
         "@ubud/dropdown": "^0.1.0",
         "@ubud/menus": "^0.1.0",
         "@ubud/ngrx": "^0.1.0",
-        "@ubud/template": "^1.0.1",
+        "@ubud/template": "^1.1.0",
         "@ubud/tooltip": "^0.1.0",
         "@ubud/user-control": "^0.1.0",
         "@ubud/utilities": "^0.1.0",
