@@ -9,6 +9,7 @@
 
 import { NgModule } from '@angular/core';
 import { UbudSidebarTemplateModule } from './sidebar-template.module';
+import { UbudTopbarTemplateModule } from './topbar-template.module';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -16,9 +17,11 @@ import { UbudSidebarTemplateModule } from './sidebar-template.module';
 @NgModule({
     imports: [
         UbudSidebarTemplateModule,
+        UbudTopbarTemplateModule,
     ],
     exports: [
         UbudSidebarTemplateModule,
+        UbudTopbarTemplateModule,
     ],
 })
 export class UbudTemplateModule {

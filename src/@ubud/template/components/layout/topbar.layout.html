@@ -1,0 +1,13 @@
+<nav class="navbar top-navbar navbar-expand-md fixed-top">
+    <div class="navbar-header sidebar-header text-center">
+        <a class="navbar-brand" [routerLink]="brandRoute">
+            <ng-content select="[topbarLogo]"></ng-content>
+        </a>
+    </div>
+
+    <ng-content select="[navbarMenu]"></ng-content>
+</nav>
+
+<div class="ubud-main-content">
+    <ng-content></ng-content>
+</div>

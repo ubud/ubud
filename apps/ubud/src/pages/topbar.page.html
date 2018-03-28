@@ -1,0 +1,35 @@
+<ubud-topbar-layout>
+    <img src="/assets/images/logo-white.png" topbarLogo title="Ubud" />
+
+    <ul navbarMenu class="navbar-nav mr-auto">
+        <li class="nav-item"><a href="">Dashboard</a></li>
+        <li class="nav-item"><a href="">Documents</a></li>
+    </ul>
+
+    <ul navbarMenu class="navbar-nav">
+        <li class="nav-item">
+            <a ubudTooltip="Notification" tooltipPlacement="bottom" class="icon-only">
+                <i class="fa fa-bell"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <ubud-user-control size="25" image="/assets/images/user-profile.jpg">
+                <div class="dropdown-menu show dropdown-menu-right">
+                    <a href="" class="dropdown-item">
+                        <i class="fa fa-cog"></i>
+                        Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">
+                        <i class="fa fa-power-off"></i>
+                        Logout
+                    </a>
+                </div>
+            </ubud-user-control>
+        </li>
+    </ul>
+
+    <div class="container">
+        Hello world
+    </div>
+</ubud-topbar-layout>
