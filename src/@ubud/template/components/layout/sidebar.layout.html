@@ -10,7 +10,7 @@
         <ng-content select="[navbarLogo]"></ng-content>
     </a>
 
-    <ul [class.mr-auto]="small && sidebarOpen" class="navbar-nav navbar-nav-start">
+    <ul *ngIf="enabled" [class.mr-auto]="small && sidebarOpen" class="navbar-nav navbar-nav-start">
         <li class="nav-item d-md-none">
             <button [class.is-active]="sidebarOpen" class="hamburger hamburger--spin" type="button" (click)="toggle()">
                 <span class="hamburger-box">
@@ -25,7 +25,7 @@
 
 
 <ng-sidebar-container [class.docked]="docked">
-    <ng-sidebar [dockedSize]="dockSize" [dock]="docked" [opened]="sidebarOpen" mode="push">
+    <ng-sidebar [dockedSize]="dockSize" [dock]="docked" [opened]="sidebarOpen && enabled" mode="push">
         <div class="ubud-sidebar" [ngStyle]="{ width: docked ? dockSize : sidebarSize }">
             <div class="sidebar-brand"></div>
             <ng-content *ngIf="!docked" select="[sidebarMenu]"></ng-content>
@@ -34,7 +34,7 @@
     </ng-sidebar>
 
     <div ng-sidebar-content>
-        <div class="ubud-sidebar-splitter">
+        <div class="ubud-sidebar-splitter" *ngIf="enabled">
             <button (click)="toggleDock()"></button>
         </div>
         <div class="ubud-sidebar-content">

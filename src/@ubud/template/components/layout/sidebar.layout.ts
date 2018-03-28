@@ -31,6 +31,9 @@ export class SidebarLayout implements OnInit {
     @Input()
     public brandRoute: string | null = null;
 
+    @Input()
+    public enabled: boolean = true;
+
     public sidebarOpen: boolean = false;
     public small: boolean = false;
 
