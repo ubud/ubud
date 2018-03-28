@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/template",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "dependencies": {
     "hamburgers": "~0.9.3",
     "ng-mediacheck": "~0.1.7",
