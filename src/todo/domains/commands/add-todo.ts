@@ -7,14 +7,14 @@
  * file that was distributed with this source code.
  */
 
-import { Message, SelfHandling } from '@ubud/ngrx';
+import { Action } from '@ubud/ngrx';
 import { TodoState } from '../state';
 import { Todo } from '../models/todo';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export class AddTodo extends Message implements SelfHandling<TodoState> {
+export class AddTodo extends Action {
     public readonly type: string = 'ADD_TODO';
 
     public todo: Todo;

@@ -7,14 +7,14 @@
  * file that was distributed with this source code.
  */
 
-import { Reducer } from '@ubud/ngrx';
 import { TodoState } from './state';
+import { Action } from '@ubud/ngrx/action';
+import { createReducer } from '@ubud/ngrx/reducer';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export class TodoReducer extends Reducer {
-    protected state: TodoState = {
-        todos: [],
-    };
+const INITIAL_STATE = { todos: [] };
+export function todoReducer(state: TodoState = INITIAL_STATE, action: Action): TodoState {
+    return createReducer<TodoState>(state, action);
 }

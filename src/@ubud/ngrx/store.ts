@@ -9,7 +9,7 @@
 
 import { Injectable } from '@angular/core';
 import { createSelector, MemoizedSelector, Store as NgrxStore } from '@ngrx/store';
-import { Message } from './message';
+import { Action } from './action';
 import { Observable } from 'rxjs/Observable';
 
 /**
@@ -19,7 +19,7 @@ import { Observable } from 'rxjs/Observable';
 export abstract class Store {
     public constructor(protected store: NgrxStore<any>) {}
 
-    public dispatch(action: Message): void {
+    public dispatch(action: Action): void {
         this.store.dispatch(action);
     }
 

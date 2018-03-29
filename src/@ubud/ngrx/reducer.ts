@@ -7,39 +7,16 @@
  * file that was distributed with this source code.
  */
 
-import { Message } from './message';
-import { SelfHandling } from './contracts/self-handling';
+import { Action } from './action';
+import { Action as NgrxAction } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-// @dynamic
-export abstract class Reducer {
-    protected abstract state: object;
-
-    public static reduce(): Function {
-        const reducer: any = new (<any> this)();
-
-        return (state: any = reducer.state, action: Message | SelfHandling<any>): any => {
-            if (Reducer.isSelfHandling(action)) {
-                return action.handle(state);
-            }
-
-            const method = Reducer.camel((<Message> action).type);
-
-            if ('function' === typeof reducer[method]) {
-                return reducer[method](state, action);
-            }
-
-            return state;
-        };
+export function createReducer<T>(state: T, action: Action|NgrxAction): T {
+    if (action instanceof Action) {
+        return action.handle(state);
     }
 
-    private static camel(text: string): string {
-        return text.replace(/(\-\w)/g, (m: any) => m[1].toUpperCase());
-    }
-
-    private static isSelfHandling(action: Message | SelfHandling<any>): action is SelfHandling<any> {
-        return undefined !== (<SelfHandling<any>> action).handle;
-    }
+    return state;
 }

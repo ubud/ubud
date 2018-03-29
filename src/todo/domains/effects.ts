@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { Effects, Message } from '@ubud/ngrx';
+import { Effects, Action } from '@ubud/ngrx';
 import { Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from './models/todo';
@@ -19,7 +19,7 @@ import { AllTodosFetched } from './events/all-todo-fetched';
  */
 export class TodosEffects extends Effects {
     @Effect()
-    public navigateToTodos$: Observable<Message> = this.handleNavigation('todos', () => {
+    public navigateToTodos$: Observable<Action> = this.handleNavigation('todos', () => {
         return of(new AllTodosFetched({
             todos: [
                 new Todo({ task: 'Task 1' }),

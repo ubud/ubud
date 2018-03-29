@@ -19,6 +19,17 @@ const routes: Routes = [
     {
         path: '',
         component: TopbarPage,
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'todos',
+            },
+            {
+                path: 'todos',
+                loadChildren: '../../../../src/todo/todo.module#TodoModule',
+            },
+        ],
     },
     {
         path: 'sidebar',

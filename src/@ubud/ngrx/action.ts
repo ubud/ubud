@@ -7,12 +7,12 @@
  * file that was distributed with this source code.
  */
 
-import { Action } from '@ngrx/store';
+import { Action as NgrxAction } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export abstract class Message implements Action {
+export abstract class Action implements NgrxAction {
     public abstract readonly type: string;
 
     public constructor(payload?: object) {
@@ -23,7 +23,7 @@ export abstract class Message implements Action {
 
     public get payload(): object {
         return Object.entries(this).reduce(
-            (acc: {[key: string]: any}, [key, value]) => {
+            (acc: { [key: string]: any }, [key, value]) => {
                 if ('type' !== key) {
                     acc[key] = value;
                 }
@@ -33,4 +33,6 @@ export abstract class Message implements Action {
             {},
         );
     }
+
+    public abstract handle(state: any): any;
 }

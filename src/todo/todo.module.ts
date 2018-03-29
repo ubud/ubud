@@ -17,7 +17,7 @@ import { TodoInputComponent } from './components/todo-input.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from './domains/effects';
 import { StoreModule } from '@ngrx/store';
-import { TodoReducer } from './domains/reducers';
+import { todoReducer } from './domains/reducers';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -25,7 +25,7 @@ import { TodoReducer } from './domains/reducers';
 @NgModule({
     imports: [
         CommonModule,
-        // StoreModule.forFeature('todo', TodoReducer.reduce()),
+        StoreModule.forFeature('todo', todoReducer),
         EffectsModule.forFeature([
             TodosEffects,
         ]),
