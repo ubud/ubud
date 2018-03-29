@@ -58,7 +58,7 @@ export class SidebarMenuItemComponent implements AfterContentInit {
 
     public collapsed: boolean = false;
 
-    private parentMenu: boolean = false;
+    public parentMenu: boolean = false;
 
     @ContentChild(SidebarMenuComponent)
     private subMenu: SidebarMenuComponent;

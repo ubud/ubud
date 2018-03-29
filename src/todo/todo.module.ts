@@ -25,7 +25,7 @@ import { TodoReducer } from './domains/reducers';
 @NgModule({
     imports: [
         CommonModule,
-        StoreModule.forFeature('todo', TodoReducer.reduce()),
+        // StoreModule.forFeature('todo', TodoReducer.reduce()),
         EffectsModule.forFeature([
             TodosEffects,
         ]),

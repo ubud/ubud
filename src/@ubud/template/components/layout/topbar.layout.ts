@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -17,4 +17,6 @@ import { Component } from '@angular/core';
     templateUrl: './topbar.layout.html',
 })
 export class TopbarLayout {
+    @Input()
+    public brandRoute: string | null = null;
 }

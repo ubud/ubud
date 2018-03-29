@@ -38,9 +38,9 @@ export class TooltipComponent implements AfterViewInit {
     public left: string = '-1000px';
     public display: string = 'block';
     public content: string;
+    public placement: 'top' | 'bottom' | 'left' | 'right';
 
     private hostEl: ElementRef;
-    private placement: 'top' | 'bottom' | 'left' | 'right';
     private appendToBody: boolean;
 
     public constructor(private el: ElementRef, private cdr: ChangeDetectorRef, private options: TooltipOptions) {
