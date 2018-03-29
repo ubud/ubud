@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TooltipComponent } from './components/tooltip.component';
 import { TooltipDirective } from './directives/tooltip.directive';
+import { UbudUtilitiesModule } from '@ubud/utilities';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -18,6 +19,7 @@ import { TooltipDirective } from './directives/tooltip.directive';
 @NgModule({
     imports: [
         CommonModule,
+        UbudUtilitiesModule,
     ],
     declarations: [
         TooltipComponent,
