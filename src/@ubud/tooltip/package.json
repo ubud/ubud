@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/tooltip",
-  "version": "0.1.0",
+  "version": "1.1.2",
   "dependencies": {
     "@ubud/utilities": "^0.1.0"
   },
