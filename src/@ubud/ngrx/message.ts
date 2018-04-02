@@ -8,11 +8,13 @@
  */
 
 import { Action } from '@ngrx/store';
+import { Type } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 export abstract class Message implements Action {
+    public static readonly NAME: string = '';
     public readonly type: string;
 
     public constructor(payload?: object) {
@@ -37,10 +39,9 @@ export abstract class Message implements Action {
     public abstract handle(state: any): any;
 }
 
-export function messageFactory(messageName: string) {
+export function messageFactory(messageName: string): typeof Message {
     return class extends Message {
         public static readonly NAME: string = messageName;
-
         public readonly type: string = messageName;
 
         public handle(state: any): any {
