@@ -13,7 +13,7 @@ import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 import { of } from 'rxjs/observable/of';
 import { Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { catchError, filter, map, switchMap } from 'rxjs/operators';
+import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -25,14 +25,31 @@ export class Effects {
 
     protected handleNavigation(segment: string, callback: (route: ActivatedRouteSnapshot, state: any) => Observable<any>): Observable<any> {
         const nav: any = this.actions$.ofType(ROUTER_NAVIGATION)
-            .pipe(map((router: RouterNavigationAction) => router.payload.routerState.root.firstChild))
-            .pipe(filter((route: any) => null !== route && route.routeConfig.path === segment));
+            .pipe(
+                map((router: RouterNavigationAction) => router.payload.routerState.root.firstChild),
+                filter((route: any) => {
+                    if (null !== route) {
+                        let currentUrl = route._routerState.url.split(';')[0];
+                        const pattern = segment.replace(/\//g, '\\\/');
+                        const regex = new RegExp(`^${pattern}$`);
 
-        return nav
-            .pipe(switchMap((a: any) => callback(a[0], a[1])))
-            .pipe(catchError((e: any) => {
+                        if ('/' === currentUrl.charAt(0)) {
+                            currentUrl = currentUrl.substr(1);
+                        }
+
+                        return regex.test(currentUrl);
+                    }
+
+                    return false;
+                }),
+            );
+
+        return nav.pipe(
+            switchMap((a: any) => callback(a[0], a[1])),
+            catchError((e: any) => {
                 console.log('Network error', e);
                 return of();
-            }));
+            }),
+        );
     }
 }
