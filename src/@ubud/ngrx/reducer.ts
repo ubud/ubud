@@ -7,14 +7,14 @@
  * file that was distributed with this source code.
  */
 
-import { Action } from './action';
+import { Message } from './message';
 import { Action as NgrxAction } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export function createReducer<T>(state: T, action: Action|NgrxAction): T {
-    if (action instanceof Action) {
+export function createReducer<T>(state: T, action: Message|NgrxAction): T {
+    if (action instanceof Message) {
         return action.handle(state);
     }
 

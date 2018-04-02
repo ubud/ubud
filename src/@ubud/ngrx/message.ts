@@ -7,13 +7,13 @@
  * file that was distributed with this source code.
  */
 
-import { Action as NgrxAction } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export abstract class Action implements NgrxAction {
-    public abstract readonly type: string;
+export abstract class Message implements Action {
+    public readonly type: string;
 
     public constructor(payload?: object) {
         if (payload) {
@@ -35,4 +35,16 @@ export abstract class Action implements NgrxAction {
     }
 
     public abstract handle(state: any): any;
+}
+
+export function messageFactory(messageName: string) {
+    return class extends Message {
+        public static readonly NAME: string = messageName;
+
+        public readonly type: string = messageName;
+
+        public handle(state: any): any {
+            throw Error('Message should has handler.');
+        }
+    };
 }
