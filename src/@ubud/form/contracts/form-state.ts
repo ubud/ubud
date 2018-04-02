@@ -1,5 +1,5 @@
 export interface FormState<T> {
     data: T;
-    reset?: boolean;
+    pristine?: boolean;
     disabled?: boolean;
 }

@@ -6,9 +6,9 @@ import { FormErrorDirective } from '../directives/form-error.directive';
 @Component({
     selector: 'ubud-form-error',
     template: `
-        <ng-container *ngIf="rule.hasError(control)">
-            <ng-template ngFor [ngForOf]="[rule.getError(control)]" [ngForTemplate]="!!message ? message.tpl : null">
-                <small class="text-danger">{{ rule.getError(control) }}</small>
+        <ng-container *ngIf="hasError()">
+            <ng-template ngFor [ngForOf]="[getError()]" [ngForTemplate]="!!message ? message.tpl : null">
+                <small class="text-danger">{{ getError() }}</small>
             </ng-template>
         </ng-container>
     `,
@@ -18,8 +18,28 @@ export class FormErrorComponent {
     public control: AbstractControl | AbstractControlDirective;
 
     @Input()
-    public rule: Rule;
+    public rules: Rule[];
 
     @ContentChild(FormErrorDirective)
     public message: FormErrorDirective;
+
+    public hasError(): boolean {
+        for (const rule of this.rules) {
+            if (rule.hasError(this.control)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public getError(): string | null {
+        for (const rule of this.rules) {
+            if (rule.hasError(this.control)) {
+                return rule.getError(this.control);
+            }
+        }
+
+        return null;
+    }
 }

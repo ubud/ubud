@@ -3,5 +3,5 @@ import { Rule } from './rule';
 
 export interface Form {
     formGroup: FormGroup;
-    rule: Rule;
+    rules: Rule[];
 }

@@ -11,12 +11,12 @@ export class FormDirective {
         if (value && value.data) {
             this.formGroupDirective.form.patchValue(value.data);
 
-            if (!value.reset) {
+            if (!value.pristine) {
                 this.formGroupDirective.form.updateValueAndValidity();
             }
         }
 
-        if (value && value.reset) {
+        if (value && value.pristine) {
             this.formGroupDirective.form.markAsPristine();
         }
 
