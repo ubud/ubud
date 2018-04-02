@@ -21,11 +21,6 @@ const routes: Routes = [
         component: TopbarPage,
         children: [
             {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'todos',
-            },
-            {
                 path: 'todos',
                 loadChildren: '../../../../src/todo/todo.module#TodoModule',
             },

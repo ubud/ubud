@@ -9,8 +9,8 @@
 
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Todo } from '../domains/models/todo';
-import { TodoStore } from '../domains/store';
+import { Todo } from '../../domain/models/todo';
+import { TodoStore } from '../../domain/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -19,7 +19,7 @@ import { TodoStore } from '../domains/store';
     selector: 'ubud-todo',
     template: `
         <ubud-todo-list [todos]="todos$ | async"></ubud-todo-list>
-        <ubud-todo-input></ubud-todo-input>
+        <ubud-todo-container></ubud-todo-container>
     `,
 })
 export class TodoPage {

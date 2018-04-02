@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 import { RouterModule, Routes } from '@angular/router';
-import { TodoPage } from './pages/todo.page';
+import { TodoPage } from './view/pages/todo.page';
 import { ModuleWithProviders } from '@angular/core';
 
 /**

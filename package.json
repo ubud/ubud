@@ -71,6 +71,7 @@
         "@angular/cli": "~1.7.2",
         "@angular/compiler-cli": "^5.2.0",
         "@angular/language-service": "^5.2.0",
+        "@types/qs": "~6.5.1",
         "codelyzer": "^4.0.1",
         "ncp": "^2.0.0",
         "ng-packagr": "^2.2.0",

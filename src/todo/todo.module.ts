@@ -9,15 +9,9 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoPage } from './pages/todo.page';
-import { TodoListComponent } from './components/todo-list.component';
 import { routing } from './todo.routes';
-import { TodoStore } from './domains/store';
-import { TodoInputComponent } from './components/todo-input.component';
-import { EffectsModule } from '@ngrx/effects';
-import { TodosEffects } from './domains/effects';
-import { StoreModule } from '@ngrx/store';
-import { todoReducer } from './domains/reducers';
+import { UbudTodoViewModule } from './view/module';
+import { UbudTodoDomainModule } from './domain/module';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -25,22 +19,9 @@ import { todoReducer } from './domains/reducers';
 @NgModule({
     imports: [
         CommonModule,
-        StoreModule.forFeature('todo', todoReducer),
-        EffectsModule.forFeature([
-            TodosEffects,
-        ]),
+        UbudTodoDomainModule,
+        UbudTodoViewModule,
         routing,
-    ],
-    providers: [
-        TodoStore,
-    ],
-    declarations: [
-        TodoPage,
-        TodoListComponent,
-        TodoInputComponent,
-    ],
-    exports: [
-        TodoPage,
     ],
 })
 export class TodoModule {

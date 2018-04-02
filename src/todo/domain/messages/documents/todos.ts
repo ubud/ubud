@@ -6,18 +6,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-import { Action } from '@ubud/ngrx';
-import { TodoState } from '../state';
-import { Todo } from '../models/todo';
+
+import { TodoState } from '../../state';
+import { Todo } from '../../models/todo';
+import { messageFactory } from '@ubud/ngrx/message';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export const ALL_TODOS_FETCHED = 'ALL_TODOS_FETCHED';
-
-export class AllTodosFetched extends Action {
-    public readonly type: string = ALL_TODOS_FETCHED;
-
+export class Todos extends messageFactory('ALL_TODOS_FETCHED') {
     public todos: Todo[];
 
     public handle(state: TodoState): TodoState {

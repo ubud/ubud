@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 import { Component, Input } from '@angular/core';
-import { Todo } from '../domains/models/todo';
+import { Todo } from '../../domain/models/todo';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
