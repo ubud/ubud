@@ -23,7 +23,7 @@ export abstract class Rule implements RuleContract {
         return errors[0];
     }
 
-    public abstract getFormControls(): object;
+    public abstract getFormControls(): { [key: string]: any };
 
     protected getMessage(constraint: string, params: any, control: any): string | null {
         const attribute = this.getFormControlName(control);

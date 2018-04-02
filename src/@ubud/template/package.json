@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/template",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "dependencies": {
     "hamburgers": "~0.9.3",
     "ng-mediacheck": "~0.1.7",
@@ -11,6 +11,10 @@
     "@angular/common": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/router": "^5.2.0"
+  },
+  "scripts": {
+    "postversion": "run-p build",
+    "build": "ng-packagr -p ./package.json"
   },
   "ngPackage": {
     "lib": {

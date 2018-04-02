@@ -6,5 +6,5 @@ export interface Rule {
 
     hasError(control: AbstractControlDirective | AbstractControl): boolean;
     getError(control: AbstractControlDirective | AbstractControl): string | null;
-    getFormControls(): object;
+    getFormControls(): { [key: string]: any };
 }

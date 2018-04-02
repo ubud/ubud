@@ -1,13 +1,17 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/user-control",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "dependencies": {
     "@ubud/dropdown": "^0.1.0"
   },
   "peerDependencies": {
     "@angular/common": "^5.2.0",
     "@angular/core": "^5.2.0"
+  },
+  "scripts": {
+    "postversion": "run-p build",
+    "build": "ng-packagr -p ./package.json"
   },
   "ngPackage": {
     "lib": {

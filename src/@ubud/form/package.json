@@ -1,15 +1,24 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/form",
-  "version": "1.1.2",
+  "version": "1.1.6",
   "peerDependencies": {
     "@angular/common": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0"
   },
+  "scripts": {
+    "postversion": "run-p build",
+    "build": "ng-packagr -p ./package.json"
+  },
   "ngPackage": {
     "lib": {
-      "entryFile": "index.ts"
+      "entryFile": "index.ts",
+      "languageLevel": [
+        "es2017",
+        "es2017.object",
+        "dom"
+      ]
     },
     "dest": "../../../dist/form"
   }
