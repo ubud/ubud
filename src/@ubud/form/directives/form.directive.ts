@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
+import { AbstractControl, FormGroupDirective } from '@angular/forms';
 import { FormState } from '../contracts/form-state';
 
 @Directive({
@@ -8,23 +8,25 @@ import { FormState } from '../contracts/form-state';
 export class FormDirective {
     @Input('ubudForm')
     public set data(value: FormState<any>) {
-        if (value && value.data) {
-            this.formGroupDirective.form.patchValue(value.data);
+        const formGroup = this.formGroupDirective;
 
-            if (!value.pristine) {
-                this.formGroupDirective.form.updateValueAndValidity();
+        if (value) {
+            if (value.data) {
+                this.formGroupDirective.form.patchValue(value.data);
             }
-        }
 
-        if (value && value.pristine) {
-            this.formGroupDirective.form.markAsPristine();
-        }
+            if (value.pristine) {
+                Object.values(formGroup.form.controls).forEach((control: AbstractControl) => {
+                    control.reset(control.value);
+                });
+            }
 
-        if (value && 'undefined' !== typeof value.disabled) {
-            if (true === value.disabled) {
-                this.formGroupDirective.form.disable();
-            } else {
-                this.formGroupDirective.form.enable();
+            if ('undefined' !== typeof value.disabled) {
+                if (true === value.disabled) {
+                    this.formGroupDirective.form.disable();
+                } else {
+                    this.formGroupDirective.form.enable();
+                }
             }
         }
     }

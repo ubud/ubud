@@ -24,13 +24,9 @@ export class FormErrorComponent {
     public message: FormErrorDirective;
 
     public hasError(): boolean {
-        for (const rule of this.rules) {
-            if (rule.hasError(this.control)) {
-                return true;
-            }
-        }
-
-        return false;
+        return this.rules.some((rule: Rule) => {
+            return rule.hasError(this.control);
+        });
     }
 
     public getError(): string | null {
