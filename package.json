@@ -1,6 +1,6 @@
 {
     "name": "ubud-skeleton",
-    "version": "1.1.9",
+    "version": "1.1.10",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
@@ -45,7 +45,7 @@
         "@ubud/bootstrap-theme": "^1.1.6",
         "@ubud/dropdown": "^1.1.6",
         "@ubud/menus": "^1.1.6",
-        "@ubud/ngrx": "^1.1.7",
+        "@ubud/ngrx": "^1.1.8",
         "@ubud/template": "^1.1.6",
         "@ubud/tooltip": "^1.1.7",
         "@ubud/user-control": "^1.1.6",
