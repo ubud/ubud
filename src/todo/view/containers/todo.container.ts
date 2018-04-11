@@ -38,7 +38,7 @@ import { FormState } from '@ubud/form/contracts/form-state';
 })
 export class TodoContainer {
     public processing$: Observable<boolean>;
-    public currentTodo$: Observable<FormState<Todo>>;
+    public currentTodo$: Observable<FormState<Todo> | null>;
 
     public form: Form;
     public readyForSubmit: boolean = false;

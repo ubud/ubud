@@ -8,12 +8,11 @@
  */
 
 import { Action } from '@ngrx/store';
-import { Type } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export abstract class Message implements Action {
+export abstract class Message<T> implements Action {
     public static readonly NAME: string = '';
     public readonly type: string;
 
@@ -36,16 +35,14 @@ export abstract class Message implements Action {
         );
     }
 
-    public abstract handle(state: any): any;
+    public handle(state: T): T {
+        throw Error('Message should has handler.');
+    }
 }
 
 export function messageFactory(messageName: string): typeof Message {
-    return class extends Message {
+    return class<T> extends Message<T> {
         public static readonly NAME: string = messageName;
         public readonly type: string = messageName;
-
-        public handle(state: any): any {
-            throw Error('Message should has handler.');
-        }
     };
 }

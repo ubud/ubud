@@ -8,13 +8,17 @@
  */
 
 import { Message } from './message';
-import { Action as NgrxAction } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export function createReducer<T>(messages: (typeof Message)[]): (state: T, action: Message) => T {
-    const cache: any = messages.reduce(
+export interface MessageClass<T> {
+    new(...args: any[]): Message<T>;
+    NAME: string;
+}
+
+export function createReducer<T>(messages: MessageClass<T>[]): (state: T, message: Message<T>) => T {
+    const cache: { [key: string]: boolean } = messages.reduce(
         (acc, cur) => {
             acc[cur.NAME] = true;
 
@@ -23,9 +27,9 @@ export function createReducer<T>(messages: (typeof Message)[]): (state: T, actio
         <any>{},
     );
 
-    return (state: any, action: Message | NgrxAction) => {
-        if (cache[action.type] && action instanceof Message) {
-            return action.handle(state);
+    return (state: T, message: Message<T>) => {
+        if (cache[message.type]) {
+            return message.handle(state);
         }
 
         return state;

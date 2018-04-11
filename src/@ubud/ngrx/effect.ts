@@ -24,32 +24,76 @@ export class Effects {
     }
 
     protected handleNavigation(segment: string, callback: (route: ActivatedRouteSnapshot, state: any) => Observable<any>): Observable<any> {
-        const nav: any = this.actions$.ofType(ROUTER_NAVIGATION)
-            .pipe(
-                map((router: RouterNavigationAction) => router.payload.routerState.root.firstChild),
-                filter((route: any) => {
-                    if (null !== route) {
-                        let currentUrl = route._routerState.url.split(';')[0];
-                        const pattern = segment.replace(/\//g, '\\\/');
-                        const regex = new RegExp(`^${pattern}$`);
+        const nav: any = this.actions$.ofType(ROUTER_NAVIGATION).pipe(
+            filter((router: any) => {
+                const url = this.buildCurrentUri(router.payload.routerState.root);
+                if (null !== url) {
+                    let currentUrl = url.split(';')[0];
 
-                        if ('/' === currentUrl.charAt(0)) {
-                            currentUrl = currentUrl.substr(1);
-                        }
+                    const pattern = segment
+                        .replace(/\:/g, ':')
+                        .replace(/\/\//g, '/')
+                        .replace(/\//g, '\\/');
+                    const regex = new RegExp(`^${pattern}$`);
+                    // const pattern = segment.replace(/\//g, '\\\/');
 
-                        return regex.test(currentUrl);
+                    if ('/' === currentUrl.charAt(0)) {
+                        currentUrl = currentUrl.substr(1);
                     }
 
-                    return false;
-                }),
-            );
+                    return regex.test(currentUrl);
+                }
+
+                return false;
+            }),
+        );
 
         return nav.pipe(
-            switchMap((a: any) => callback(a[0], a[1])),
+            switchMap((action: any) => {
+                const rs = action.payload.routerState;
+
+                return of(this.collectParams(rs.root));
+            }),
             catchError((e: any) => {
                 console.log('Network error', e);
                 return of();
             }),
         );
+    }
+
+    private buildCurrentUri(route: ActivatedRouteSnapshot): string {
+        let uri = '';
+
+        if (route.routeConfig && route.routeConfig.path) {
+            uri += '/' + route.routeConfig.path;
+        }
+
+        if (route.children) {
+            route.children.forEach((item: ActivatedRouteSnapshot) => {
+                uri += this.buildCurrentUri(item);
+            });
+        }
+
+        return uri;
+    }
+
+    private collectParams(route: ActivatedRouteSnapshot): { params: object, queryParams: object, data: object } {
+        const data = {
+            params: Object.assign({}, route.params || {}),
+            queryParams: Object.assign({}, route.queryParams || {}),
+            data: Object.assign({}, route.data || {}),
+        };
+
+        if (route.children) {
+            route.children.forEach((item: ActivatedRouteSnapshot) => {
+                const collected = this.collectParams(item);
+
+                data.data = Object.assign(data.data, collected.data);
+                data.params = Object.assign(data.params, collected.params);
+                data.queryParams = Object.assign(data.queryParams, collected.queryParams);
+            });
+        }
+
+        return data;
     }
 }

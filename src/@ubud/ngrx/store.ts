@@ -8,7 +8,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { createSelector, MemoizedSelector, Store as NgrxStore } from '@ngrx/store';
+import { createFeatureSelector, createSelector, Store as NgrxStore } from '@ngrx/store';
 import { Message } from './message';
 import { Observable } from 'rxjs/Observable';
 
@@ -16,25 +16,36 @@ import { Observable } from 'rxjs/Observable';
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @Injectable()
-export abstract class Store {
-    public constructor(protected store: NgrxStore<any>) {}
-
-    public dispatch(action: Message): void {
-        this.store.dispatch(action);
+export abstract class Store<T> {
+    public constructor(protected store: NgrxStore<any>) {
     }
 
-    protected select<Result, T>(selector: (state: T) => any|MemoizedSelector<any, any>): Observable<Result> {
-        if (selector instanceof Function) {
+    public dispatch(message: Message<T>): void {
+        this.store.dispatch(message);
+    }
+
+    protected all(): Observable<T> {
+        throw Error('Store should has all function');
+    }
+
+    protected select<Result>(selector: (state: T) => Result): Observable<Result> {
+        throw new Error('Store should has select function');
+    }
+}
+
+export function storeFactory(featureName: string): typeof Store {
+    return class<T> extends Store<T> {
+        protected all(): Observable<T> {
+            return this.store.select(createFeatureSelector(featureName));
+        }
+
+        protected select<R>(selector: (state: T) => R): Observable<R> {
             return this.store.select(
                 createSelector(
-                    this.selectState(),
+                    createFeatureSelector<T>(featureName),
                     selector,
                 ),
             );
         }
-
-        return this.store.select(selector);
-    }
-
-    protected abstract selectState(): (state: any) => any;
+    };
 }

@@ -15,7 +15,7 @@ import { messageFactory } from '@ubud/ngrx/message';
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export class AddTodo extends messageFactory('ADD_TODO') {
+export class AddTodo extends messageFactory('ADD_TODO')<TodoState> {
     public todo: FormState<Todo>;
 
     public handle(state: TodoState): TodoState {

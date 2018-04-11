@@ -13,13 +13,14 @@ import { Observable } from 'rxjs/Observable';
 import { Todo } from '../models/todo';
 import { of } from 'rxjs/observable/of';
 import { Todos } from '../messages/documents/todos';
+import { Action } from '@ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 export class TodoEffect extends Effects {
     @Effect()
-    public navigateToTodos$: Observable<Message> = this.handleNavigation('todos', () => {
+    public navigateToTodos$: Observable<Action> = this.handleNavigation('todos', () => {
         return of(new Todos({
             todos: [
                 new Todo({ task: 'Task 1' }),
