@@ -24,7 +24,7 @@ export abstract class Store<T> {
         this.store.dispatch(message);
     }
 
-    protected all(): Observable<T> {
+    public all(): Observable<T> {
         throw Error('Store should has all function');
     }
 
@@ -35,7 +35,7 @@ export abstract class Store<T> {
 
 export function storeFactory(featureName: string): typeof Store {
     return class<T> extends Store<T> {
-        protected all(): Observable<T> {
+        public all(): Observable<T> {
             return this.store.select(createFeatureSelector(featureName));
         }
 

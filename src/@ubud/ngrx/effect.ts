@@ -23,7 +23,7 @@ export class Effects {
     public constructor(protected actions$: Actions) {
     }
 
-    protected handleNavigation(segment: string, callback: (route: ActivatedRouteSnapshot, state: any) => Observable<any>): Observable<any> {
+    protected handleNavigation(segment: string, callback: (state: any) => Observable<any>): Observable<any> {
         const nav: any = this.actions$.ofType(ROUTER_NAVIGATION).pipe(
             filter((router: any) => {
                 const url = this.buildCurrentUri(router.payload.routerState.root);
@@ -49,11 +49,7 @@ export class Effects {
         );
 
         return nav.pipe(
-            switchMap((action: any) => {
-                const rs = action.payload.routerState;
-
-                return of(this.collectParams(rs.root));
-            }),
+            switchMap((action: any) => callback(this.collectParams(action.payload.routerState.root))),
             catchError((e: any) => {
                 console.log('Network error', e);
                 return of();
