@@ -1,6 +1,6 @@
 {
     "name": "ubud-skeleton",
-    "version": "1.1.15",
+    "version": "1.1.16",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
