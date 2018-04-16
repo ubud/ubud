@@ -2,20 +2,24 @@ import { EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form } from '../contracts/form';
 import { FormValue } from '../contracts/form-value';
 
-export abstract class FormComponent<T> implements OnInit {
-    @Input()
-    public form: Form;
-
+export abstract class FormComponent<T>  {
     @Output()
     public submitted: EventEmitter<FormValue<T>> = new EventEmitter();
-
     @Output()
     public valueChanges: EventEmitter<FormValue<T>> = new EventEmitter();
 
-    public ngOnInit(): void {
-        this.form.formGroup.valueChanges.subscribe(() => {
+    public _form: Form;
+
+    public get form(): Form {
+        return this._form;
+    }
+
+    @Input('form')
+    public set form(form: Form) {
+        form.formGroup.valueChanges.subscribe(() => {
             this.valueChanges.emit(this.getValue());
         });
+        this._form = form;
     }
 
     public submit(): void {
@@ -26,7 +30,7 @@ export abstract class FormComponent<T> implements OnInit {
         const formGroup = this.form.formGroup;
 
         Object.keys(formGroup.controls).forEach((key: string) => {
-            formGroup.controls[ key ].markAsDirty();
+            formGroup.controls[key].markAsDirty();
         });
 
         this.submitted.emit({ data: formGroup.value, status: formGroup.status });
