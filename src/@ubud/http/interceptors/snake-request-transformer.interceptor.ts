@@ -2,10 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs/Observable';
 
 export class SnakeRequestTransformerInterceptor implements HttpInterceptor {
-    public intercept(
-        req: HttpRequest<any>,
-        next: HttpHandler,
-    ): Observable<HttpEvent<any>> {
+    public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (!req.body) {
             return next.handle(req);
         }
@@ -18,21 +15,21 @@ export class SnakeRequestTransformerInterceptor implements HttpInterceptor {
     }
 
     private toSnake(data: any): any {
+        if (data instanceof Date || data instanceof Boolean || data instanceof String) {
+            return data;
+        }
         if (data instanceof Array) {
             return data.map((item: any) => this.toSnake(item));
         }
 
-        if ('object' === typeof data) {
+        if (null !== data && 'object' === typeof data) {
             const transformed: any = {};
             Object.keys(data).forEach((key: any) => {
                 let transformedKey = key;
                 let transformedItem = data[key];
 
                 if ('string' === typeof transformedKey) {
-                    transformedKey = transformedKey.replace(
-                        /([A-Z])/g,
-                        (m: string) => '_' + m.toLowerCase(),
-                    );
+                    transformedKey = transformedKey.replace(/([A-Z])/g, (m: string) => '_' + m.toLowerCase());
                 }
 
                 if ('object' === typeof transformedItem) {

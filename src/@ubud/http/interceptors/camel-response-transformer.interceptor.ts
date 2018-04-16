@@ -24,7 +24,7 @@ export class CamelResponseTransformerInterceptor implements HttpInterceptor {
             return data.map((item: any) => this.toCamel(item));
         }
 
-        if ('object' === typeof data) {
+        if (null !== data && 'object' === typeof data) {
             const transformed: any = {};
             Object.keys(data).forEach((key: any) => {
                 let transformedKey = key;
