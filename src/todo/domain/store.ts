@@ -8,15 +8,15 @@
  */
 import { Todo } from './models/todo';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ubud/ngrx';
+import { Store, UbudStore } from '@ubud/ngrx';
 import { TodoState } from './state';
 import { FormState } from '@ubud/form/contracts/form-state';
-import { storeFactory } from '@ubud/ngrx/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export class TodoStore extends storeFactory('todo')<TodoState> {
+@UbudStore('todo')
+export class TodoStore extends Store<TodoState> {
     public isProcessing(): Observable<boolean> {
         return this.select((state: TodoState) => state.processing);
     }
