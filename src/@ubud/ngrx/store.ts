@@ -8,7 +8,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { createFeatureSelector, createSelector, Store as NgrxStore } from '@ngrx/store';
+import { Store as NgrxStore } from '@ngrx/store';
 import { Message } from './message';
 import { Observable } from 'rxjs/Observable';
 
@@ -31,26 +31,4 @@ export abstract class Store<T> {
     protected select<Result>(selector: (state: T) => Result): Observable<Result> {
         throw new Error('Store should has select function');
     }
-}
-
-// tslint:disable:function-name
-export function UbudStore(featureName: string): any {
-    return function <T extends { new(...args: any[]): Store<any> }>(
-        constructor: T,
-    ): typeof Store {
-        return class extends constructor {
-            public all(): Observable<T> {
-                return this.store.select(createFeatureSelector(featureName));
-            }
-
-            protected select<R>(selector: (state: T) => R): Observable<R> {
-                return this.store.select(
-                    createSelector(
-                        createFeatureSelector<T>(featureName),
-                        selector,
-                    ),
-                );
-            }
-        };
-    };
 }

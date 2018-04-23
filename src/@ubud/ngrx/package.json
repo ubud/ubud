@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@ubud/ngrx",
-  "version": "1.3.2",
+  "version": "1.4.18",
   "peerDependencies": {
     "@angular/core": "^5.2.0",
     "@angular/router": "^5.2.0",
