@@ -7,8 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { Rule } from '@ubud/form/rule';
-import { ErrorMessages } from 'src/@ubud/form/contracts/error-messages';
+import { ErrorMessages, Rule } from '@ubud/form';
 import { Validators } from '@angular/forms';
 
 /**

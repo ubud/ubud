@@ -1,0 +1,185 @@
+ubud-sidebar-layout {
+    .navbar {
+        padding: 0;
+        background-color: transparent;
+        z-index: 9;
+        height: $navbar-height;
+
+        > .navbar-nav {
+            line-height: $navbar-height;
+            flex-direction: row;
+
+            .dropdown-menu {
+                position: absolute;
+            }
+
+            > li {
+                margin: 2px 4px;
+
+                > a {
+                    @include border-radius(4px);
+
+                    color: transparentize(theme-color('dark'), 0.5);
+                    display: inline-block;
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    cursor: pointer;
+
+                    > i {
+                        font-weight: 400;
+                        font-size: 1.2rem;
+                    }
+
+                    &:hover {
+                        color: theme-color('primary');
+                    }
+                }
+            }
+        }
+
+        > .navbar-header {
+            padding-left: $sidebar-margin;
+            padding-right: $sidebar-margin;
+        }
+
+        > .navbar-brand {
+            font-weight: 500;
+            padding-left: 15px;
+            margin-right: 0;
+        }
+
+        > .navbar-nav-start {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .navbar .navbar-header .navbar-brand {
+        color: theme-color('primary');
+        margin-right: 0;
+    }
+
+    .navbar .navbar-header.sidebar-header {
+        color: theme-color('light');
+
+        > .navbar-brand {
+            font-weight: 500;
+            color: theme-color('light');
+        }
+
+        > .hamburger {
+            .hamburger-inner,
+            .hamburger-inner:after {
+                background-color: theme-color('light');
+            }
+        }
+    }
+
+    .ubud-sidebar {
+        background-color: theme-color('primary');
+        color: theme-color('light');
+    }
+
+    ng-sidebar-container {
+        .ubud-sidebar,
+        .ubud-sidebar-content {
+            padding-top: $navbar-height;
+        }
+    }
+
+    ubud-sidebar-menu {
+        ubud-sidebar-menu-item > li {
+            > a {
+                > .sidebar-menu-item-label {
+                    line-height: 16px;
+
+                    > i {
+                        width: 25px;
+                        font-size: 16px;
+                    }
+                }
+
+                padding: $sidebar-menu-item-padding;
+                color: theme-color('light');
+                position: relative;
+
+                &:hover {
+                    background-color: $sidebar-menu-over-bg-color;
+                    color: theme-color('light');
+                }
+            }
+
+            &.parent-menu {
+                &.parent-menu-expanded {
+                    background-color: $sidebar-sub-menu-expand-bg-color;
+
+                    > a {
+                        &:after {
+                            transform: rotate(-135deg) translate(0, -50%);
+                            -webkit-transform: rotate(-135deg) translate(0, -50%);
+                        }
+                    }
+                }
+
+                > a {
+                    &:after {
+                        position: absolute;
+                        top: 0;
+                        margin-top: $sidebar-menu-parent-item-arrow-margin-top;
+                        right: 1.3em;
+                        content: '';
+                        width: 7px;
+                        height: 7px;
+                        border-width: 1px 0 0 1px;
+                        border-style: solid;
+                        border-color: #fff;
+                        -webkit-transform: rotate(135deg) translate(0, -50%);
+                        transform: rotate(135deg) translate(0, -50%);
+                        -webkit-transform-origin: top;
+                        transform-origin: top;
+                        transition: all 0.3s ease-out;
+                    }
+                }
+            }
+        }
+
+        > .sidebar-title {
+            font-weight: 500;
+            opacity: 0.7;
+            text-transform: uppercase;
+            padding-left: $sidebar-margin;
+            padding-right: $sidebar-margin;
+            font-size: $sidebar-title-font-size;
+            margin-top: $sidebar-title-margin-top;
+            margin-bottom: $sidebar-title-margin-bottom;
+        }
+    }
+
+    [sidebarMenuDocked] {
+        ubud-sidebar-menu {
+            ubud-sidebar-menu-item > li {
+                padding: 4px 10px;
+                > a {
+                    border-radius: 5px;
+
+                    > .sidebar-menu-item-label {
+                        text-align: center;
+
+                        > i {
+                            width: auto;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ubud-sidebar-splitter {
+        &:hover {
+            &:before {
+                background-color: lighten(theme-color('primary'), 10%);
+            }
+        }
+    }
+}

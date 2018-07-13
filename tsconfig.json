@@ -1,32 +1,18 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "outDir": "./dist",
         "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "target": "es5",
-        "strict": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "lib": [
-            "es2017",
-            "es2017.object",
-            "dom"
-        ],
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2017", "dom"],
         "paths": {
-            "@ubud/*": ["src/@ubud/*"]
+            "@ubud/*": ["dist/ubud/*"]
         }
-    },
-    "exclude": [
-        "./src/@ubud"
-    ],
-    "include": [
-        "./apps/**/*",
-        "./src/**/*"
-    ]
+    }
 }

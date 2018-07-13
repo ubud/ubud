@@ -1,0 +1,33 @@
+:host {
+    float: left;
+    width: 0;
+
+    > .tooltip {
+        position: fixed;
+        font-size: 11px;
+        z-index: 999999;
+
+        > .tooltip-inner {
+            padding: 6px 8px;
+        }
+
+        &.in {
+            opacity: 1;
+            display: block;
+        }
+
+        &.bs-tooltip-top,
+        &.bs-tooltip-bottom {
+            > .arrow {
+                left: 45%;
+            }
+        }
+
+        &.bs-tooltip-left,
+        &.bs-tooltip-right {
+            > .arrow {
+                top: 30%;
+            }
+        }
+    }
+}

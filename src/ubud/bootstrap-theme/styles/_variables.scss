@@ -1,0 +1,31 @@
+// Font Awesome Path
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+
+// Navbar
+$navbar-height: 60px;
+$navbar-brand-padding-x: 0.5rem !default;
+$navbar-font-size: 0.75rem !default;
+$navbar-nav-link-bg-color: transparentize(color('white'), 0.8) !default;
+$navbar-font-weight: 500 !default;
+$navbar-nav-link-color: transparentize(color('white'), 0.3) !default;
+$navbar-nav-link-active-bg-color: color('white') !default;
+$navbar-nav-link-over-color: color('white') !default;
+$navbar-nav-link-active-color: theme-color('primary') !default;
+
+$navbar-topbar-line-height: 23px !default;
+$navbar-topbar-icon-only-size: 35px !default;
+$navbar-topbar-main-content-margin-top: 43px;
+
+// Sidebar
+$sidebar-width: 250px;
+$sidebar-margin: 15px;
+$sidebar-sub-menu-expand-bg-color: darken(theme-color('primary'), 5%);
+$sidebar-menu-over-bg-color: darken(theme-color('primary'), 10%);
+$sidebar-menu-item-padding: 12px $sidebar-margin;
+$sidebar-menu-parent-item-arrow-margin-top: 17px;
+$sidebar-title-font-size: 0.67rem;
+$sidebar-title-margin-top: 15px;
+$sidebar-title-margin-bottom: 5px;
+
+// Fonts
+$font-size-base: 0.87rem !default;

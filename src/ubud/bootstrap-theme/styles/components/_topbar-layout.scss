@@ -1,0 +1,114 @@
+ubud-topbar-layout {
+    .navbar {
+        background-color: theme-color('primary');
+        padding: 0 1rem;
+
+        .navbar-brand {
+            @extend .d-flex;
+            @extend .justify-content-center;
+            @extend .rounded;
+
+            > img {
+                height: $navbar-topbar-line-height;
+            }
+
+            padding: $navbar-brand-padding-y $navbar-brand-padding-x;
+            margin-top: $navbar-brand-padding-y;
+            margin-bottom: $navbar-brand-padding-y;
+
+            &:hover {
+                background-color: $navbar-nav-link-bg-color;
+            }
+        }
+
+        .navbar-nav {
+            > li.nav-item {
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                margin-left: 5px;
+
+                > a {
+                    @extend .d-flex;
+                    @extend .justify-content-center;
+                    @extend .rounded;
+
+                    line-height: $navbar-topbar-line-height;
+                    color: $navbar-nav-link-color;
+                    font-weight: $navbar-font-weight;
+                    font-size: $navbar-font-size;
+                    padding: $navbar-brand-padding-y $navbar-brand-padding-x;
+                    margin-top: $navbar-brand-padding-y;
+                    margin-bottom: $navbar-brand-padding-y;
+
+                    &.active {
+                        background-color: $navbar-nav-link-active-bg-color;
+                        color: $navbar-nav-link-active-color;
+                    }
+
+                    &:hover {
+                        background-color: $navbar-nav-link-bg-color;
+                        color: $navbar-nav-link-over-color;
+                    }
+
+                    &.icon-only {
+                        min-width: $navbar-topbar-icon-only-size;
+
+                        > i {
+                            font-size: $font-size-base;
+                        }
+                    }
+
+                    > i {
+                        line-height: $navbar-topbar-line-height;
+                    }
+                }
+
+                ubud-user-control {
+                    a[ubudDropdownToggle] {
+                        @extend .rounded;
+
+                        line-height: $navbar-topbar-line-height;
+                        color: $navbar-nav-link-color;
+                        font-weight: $navbar-font-weight;
+                        font-size: $navbar-font-size;
+                        padding: $navbar-brand-padding-y $navbar-brand-padding-x;
+                        margin-top: $navbar-brand-padding-y;
+                        margin-bottom: $navbar-brand-padding-y;
+
+                        &.active {
+                            background-color: $navbar-nav-link-active-bg-color;
+
+                            &:after {
+                                border-color: $navbar-nav-link-active-color;
+                            }
+
+                            &:hover {
+                                background-color: $navbar-nav-link-active-bg-color;
+                                > img {
+                                    border-color: $navbar-nav-link-active-color;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background-color: $navbar-nav-link-bg-color;
+                            > img {
+                                border-color: $navbar-nav-link-color;
+                            }
+                        }
+
+                        &:after {
+                            border-color: $navbar-nav-link-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ubud-main-content {
+        padding-top: $navbar-topbar-main-content-margin-top;
+    }
+}

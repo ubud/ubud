@@ -10,12 +10,14 @@ import { Todo } from './models/todo';
 import { Observable } from 'rxjs/Observable';
 import { Store, UbudStore } from '@ubud/ngrx';
 import { TodoState } from './state';
-import { FormState } from '@ubud/form/contracts/form-state';
+import { FormState } from '@ubud/form';
+import { Injectable } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @UbudStore('todo')
+@Injectable()
 export class TodoStore extends Store<TodoState> {
     public isProcessing(): Observable<boolean> {
         return this.select((state: TodoState) => state.processing);
@@ -27,9 +29,5 @@ export class TodoStore extends Store<TodoState> {
 
     public currentTodo(): Observable<FormState<Todo> | null> {
         return this.select((state: TodoState) => state.currentTodoForm);
-    }
-
-    protected selectState(): (state: any) => any {
-        return (state: any) => state.todo;
     }
 }

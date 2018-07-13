@@ -8,7 +8,7 @@
  */
 
 import { Todo } from './models/todo';
-import { FormState } from '@ubud/form/contracts/form-state';
+import { FormState } from '@ubud/form';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -18,6 +18,3 @@ export interface TodoState {
     todos: Todo[];
     currentTodoForm: FormState<Todo> | null;
 }
-
-
-

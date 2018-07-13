@@ -19,16 +19,7 @@ import { AddTodoEffect } from './effects/add-todo.effect';
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @NgModule({
-    imports: [
-        StoreModule.forFeature('todo', todoReducer),
-        EffectsModule.forFeature([
-            TodoEffect,
-            AddTodoEffect,
-        ]),
-    ],
-    providers: [
-        TodoStore,
-    ],
+    imports: [StoreModule.forFeature('todo', todoReducer), EffectsModule.forFeature([TodoEffect, AddTodoEffect])],
+    providers: [TodoStore],
 })
-export class UbudTodoDomainModule {
-}
+export class UbudTodoDomainModule {}

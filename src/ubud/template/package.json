@@ -1,0 +1,14 @@
+{
+    "name": "@ubud/template",
+    "version": "2.0.0",
+    "dependencies": {
+        "hamburgers": "^0.9.3",
+        "ng-mediacheck": "^0.1.7",
+        "ng-sidebar": "^7.2.1"
+    },
+    "peerDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/router": "^6.0.0-rc.0 || ^6.0.0"
+    }
+}

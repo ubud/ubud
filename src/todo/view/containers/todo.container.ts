@@ -8,14 +8,12 @@
  */
 
 import { Component } from '@angular/core';
-import { Form } from '@ubud/form';
-import { FormValue } from '@ubud/form/contracts/form-value';
+import { Form, FormState, FormValue } from '@ubud/form';
 import { Todo } from '../../domain/models/todo';
 import { TodoFactory } from '../../factories/todo.factory';
 import { Observable } from 'rxjs/Observable';
 import { TodoStore } from '../../domain/store';
 import { AddTodo } from '../../domain/messages/commands/add-todo';
-import { FormState } from '@ubud/form/contracts/form-state';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -23,17 +21,19 @@ import { FormState } from '@ubud/form/contracts/form-state';
 @Component({
     selector: 'ubud-todo-container',
     template: `
-        <ubud-todo-form #todoForm
-                        [form]="form"
-                        [todo]="currentTodo$ | async"
-                        (valueChanges)="readyForSubmit = 'VALID' === $event.status"
-                        (submitted)="onSubmit($event)">
-        </ubud-todo-form>
-        <button class="btn btn-success" [disabled]="!readyForSubmit || (processing$ | async)" (click)="todoForm.submit()">
-            <ng-container *ngIf="processing$ | async; else buttonLabel"><ubud-loader-component></ubud-loader-component></ng-container>
-            <ng-template #buttonLabel>Add Todo</ng-template>
-        </button>
-    `,
+    <ubud-todo-form #todoForm
+                    [form]="form"
+                    [todo]="currentTodo$ | async"
+                    (valueChanges)="readyForSubmit = 'VALID' === $event.status"
+                    (submitted)="onSubmit($event)">
+    </ubud-todo-form>
+    <button class="btn btn-success" [disabled]="!readyForSubmit || (processing$ | async)" (click)="todoForm.submit()">
+      <ng-container *ngIf="processing$ | async; else buttonLabel">
+        <ubud-loader-component></ubud-loader-component>
+      </ng-container>
+      <ng-template #buttonLabel>Add Todo</ng-template>
+    </button>
+  `,
     providers: [TodoFactory],
 })
 export class TodoContainer {

@@ -1,0 +1,19 @@
+@import '../../../assets/styles/variables';
+@import '../../../src/ubud/bootstrap-theme/main';
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+}
+
+a {
+    outline: none;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

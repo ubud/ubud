@@ -9,12 +9,13 @@
 
 import { TodoState } from '../../state';
 import { Todo } from '../../models/todo';
-import { messageFactory } from '@ubud/ngrx/message';
+import { Message, UbudMessage } from '@ubud/ngrx';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-export class Todos extends messageFactory('ALL_TODOS_FETCHED')<TodoState> {
+@UbudMessage()
+export class Todos extends Message<TodoState> {
     public todos: Todo[];
 
     public handle(state: TodoState): TodoState {

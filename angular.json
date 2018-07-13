@@ -1,0 +1,555 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "src",
+    "projects": {
+        "todo": {
+            "root": "apps/todo/",
+            "sourceRoot": "apps/todo/src",
+            "projectType": "application",
+            "prefix": "todo",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "inlineTemplate": true,
+                    "inlineStyle": true,
+                    "styleext": "scss",
+                    "spec": false
+                },
+                "@schematics/angular:class": {
+                    "spec": false
+                },
+                "@schematics/angular:directive": {
+                    "spec": false
+                },
+                "@schematics/angular:guard": {
+                    "spec": false
+                },
+                "@schematics/angular:module": {
+                    "spec": false
+                },
+                "@schematics/angular:pipe": {
+                    "spec": false
+                },
+                "@schematics/angular:service": {
+                    "spec": false
+                }
+            },
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/todo",
+                        "index": "apps/todo/src/index.html",
+                        "main": "apps/todo/src/main.ts",
+                        "polyfills": "apps/todo/src/polyfills.ts",
+                        "tsConfig": "apps/todo/tsconfig.app.json",
+                        "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
+                        "styles": ["apps/todo/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/todo/src/environments/environment.ts",
+                                    "with": "apps/todo/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "todo:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "todo:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "todo:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "apps/todo/src/test.ts",
+                        "polyfills": "apps/todo/src/polyfills.ts",
+                        "tsConfig": "apps/todo/tsconfig.spec.json",
+                        "karmaConfig": "apps/todo/karma.conf.js",
+                        "styles": ["apps/todo/src/styles.scss"],
+                        "scripts": [],
+                        "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/todo/tsconfig.app.json", "apps/todo/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "todo-e2e": {
+            "root": "apps/todo-e2e/",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "apps/todo-e2e/protractor.conf.js",
+                        "devServerTarget": "todo:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "todo:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": "apps/todo-e2e/tsconfig.e2e.json",
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/bootstrap-theme": {
+            "root": "src/ubud/bootstrap-theme",
+            "sourceRoot": "src/ubud/bootstrap-theme/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/bootstrap-theme/tsconfig.lib.json",
+                        "project": "src/ubud/bootstrap-theme/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/bootstrap-theme/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/bootstrap-theme/src/test.ts",
+                        "tsConfig": "src/ubud/bootstrap-theme/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/bootstrap-theme/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/bootstrap-theme/tsconfig.lib.json", "src/ubud/bootstrap-theme/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/dropdown": {
+            "root": "src/ubud/dropdown",
+            "sourceRoot": "src/ubud/dropdown/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/dropdown/tsconfig.lib.json",
+                        "project": "src/ubud/dropdown/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/dropdown/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/dropdown/src/test.ts",
+                        "tsConfig": "src/ubud/dropdown/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/dropdown/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/dropdown/tsconfig.lib.json", "src/ubud/dropdown/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/form": {
+            "root": "src/ubud/form",
+            "sourceRoot": "src/ubud/form/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/form/tsconfig.lib.json",
+                        "project": "src/ubud/form/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/form/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/form/src/test.ts",
+                        "tsConfig": "src/ubud/form/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/form/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/form/tsconfig.lib.json", "src/ubud/form/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/http": {
+            "root": "src/ubud/http",
+            "sourceRoot": "src/ubud/http/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/http/tsconfig.lib.json",
+                        "project": "src/ubud/http/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/http/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/http/src/test.ts",
+                        "tsConfig": "src/ubud/http/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/http/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/http/tsconfig.lib.json", "src/ubud/http/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/loader": {
+            "root": "src/ubud/loader",
+            "sourceRoot": "src/ubud/loader/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/loader/tsconfig.lib.json",
+                        "project": "src/ubud/loader/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/loader/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/loader/src/test.ts",
+                        "tsConfig": "src/ubud/loader/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/loader/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/loader/tsconfig.lib.json", "src/ubud/loader/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/menus": {
+            "root": "src/ubud/menus",
+            "sourceRoot": "src/ubud/menus/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/menus/tsconfig.lib.json",
+                        "project": "src/ubud/menus/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/menus/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/menus/src/test.ts",
+                        "tsConfig": "src/ubud/menus/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/menus/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/menus/tsconfig.lib.json", "src/ubud/menus/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/ngrx": {
+            "root": "src/ubud/ngrx",
+            "sourceRoot": "src/ubud/ngrx/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/ngrx/tsconfig.lib.json",
+                        "project": "src/ubud/ngrx/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/ngrx/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/ngrx/src/test.ts",
+                        "tsConfig": "src/ubud/ngrx/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/ngrx/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/ngrx/tsconfig.lib.json", "src/ubud/ngrx/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/storage": {
+            "root": "src/ubud/storage",
+            "sourceRoot": "src/ubud/storage/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/storage/tsconfig.lib.json",
+                        "project": "src/ubud/storage/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/storage/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/storage/src/test.ts",
+                        "tsConfig": "src/ubud/storage/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/storage/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/storage/tsconfig.lib.json", "src/ubud/storage/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/template": {
+            "root": "src/ubud/template",
+            "sourceRoot": "src/ubud/template/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/template/tsconfig.lib.json",
+                        "project": "src/ubud/template/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/template/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/template/src/test.ts",
+                        "tsConfig": "src/ubud/template/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/template/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/template/tsconfig.lib.json", "src/ubud/template/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/tooltip": {
+            "root": "src/ubud/tooltip",
+            "sourceRoot": "src/ubud/tooltip/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/tooltip/tsconfig.lib.json",
+                        "project": "src/ubud/tooltip/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/tooltip/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/tooltip/src/test.ts",
+                        "tsConfig": "src/ubud/tooltip/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/tooltip/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/tooltip/tsconfig.lib.json", "src/ubud/tooltip/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/user-control": {
+            "root": "src/ubud/user-control",
+            "sourceRoot": "src/ubud/user-control/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/user-control/tsconfig.lib.json",
+                        "project": "src/ubud/user-control/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/user-control/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/user-control/src/test.ts",
+                        "tsConfig": "src/ubud/user-control/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/user-control/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/user-control/tsconfig.lib.json", "src/ubud/user-control/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "@ubud/utilities": {
+            "root": "src/ubud/utilities",
+            "sourceRoot": "src/ubud/utilities/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/utilities/tsconfig.lib.json",
+                        "project": "src/ubud/utilities/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/utilities/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/utilities/src/test.ts",
+                        "tsConfig": "src/ubud/utilities/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/utilities/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/utilities/tsconfig.lib.json", "src/ubud/utilities/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "todo"
+}

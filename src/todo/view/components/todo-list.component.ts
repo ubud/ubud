@@ -23,6 +23,5 @@ import { Todo } from '../../domain/models/todo';
     `,
 })
 export class TodoListComponent {
-    @Input()
-    public todos: Todo[] = [];
+    @Input() public todos: Todo[] = [];
 }

@@ -17,12 +17,6 @@ import { UbudTodoDomainModule } from './domain/module';
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @NgModule({
-    imports: [
-        CommonModule,
-        UbudTodoDomainModule,
-        UbudTodoViewModule,
-        routing,
-    ],
+    imports: [CommonModule, UbudTodoDomainModule, UbudTodoViewModule, routing],
 })
-export class TodoModule {
-}
+export class TodoModule {}

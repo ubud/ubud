@@ -7,8 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { FormFactory } from 'src/@ubud/form/contracts/form-factory';
-import { Form } from 'src/@ubud/form/contracts/form';
+import { Form, FormFactory } from '@ubud/form';
 import { FormBuilder } from '@angular/forms';
 import { TodoRule } from '../rules/todo.rule';
 import { Injectable } from '@angular/core';
@@ -18,8 +17,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class TodoFactory implements FormFactory {
-    public constructor(private fb: FormBuilder) {
-    }
+    public constructor(private fb: FormBuilder) {}
 
     public create(): Form {
         const todoRule = new TodoRule();

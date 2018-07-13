@@ -1,0 +1,16 @@
+{
+    "include": ["**/*.ts", "../../src/todo/**/*.ts"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/app",
+        "types": [],
+        "paths": {
+            "@todo/*": ["src/todo/*"],
+            "@ubud/*": ["dist/ubud/*"]
+        }
+    },
+    "angularCompilerOptions": {
+        "disableTypeScriptVersionCheck": true
+    },
+    "exclude": ["src/test.ts", "**/*.spec.ts"]
+}
