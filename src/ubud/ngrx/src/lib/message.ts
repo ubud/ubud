@@ -4,7 +4,7 @@ export abstract class Message<S = any, P extends Message<S> = any> {
 
     public abstract handle(state: S): S;
 
-    public constructor(data: Pick<P, Exclude<keyof P, 'handle' | 'TYPE'>>) {
-        Object.assign(this, data);
+    public constructor(data?: Pick<P, Exclude<keyof P, 'handle' | 'TYPE'>>) {
+        Object.assign(this, data || {});
     }
 }

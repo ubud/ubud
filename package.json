@@ -65,6 +65,8 @@
         "hamburgers": "^0.9.3",
         "ng-mediacheck": "^0.1.7",
         "ng-sidebar": "^7.2.1",
+        "ngx-cookie": "^4.0.2",
+        "ngx-cookie-service": "^1.0.10",
         "rxjs": "^6.0.0",
         "rxjs-compat": "^6.2.1",
         "zone.js": "^0.8.26"
