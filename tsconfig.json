@@ -12,7 +12,9 @@
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2017", "dom"],
         "paths": {
-            "@ubud/*": ["dist/ubud/*"]
+            "@ubud/*": ["dist/ubud/*"],
+            "@ubud/sate": ["dist/ubud/sate"],
+            "@ubud/sate/*": ["dist/ubud/sate/*"]
         }
     }
 }

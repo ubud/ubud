@@ -12,8 +12,8 @@ import { Form, FormState, FormValue } from '@ubud/form';
 import { Todo } from '../../domain/models/todo';
 import { TodoFactory } from '../../factories/todo.factory';
 import { Observable } from 'rxjs/Observable';
-import { TodoStore } from '../../domain/store';
-import { AddTodo } from '../../domain/messages/commands/add-todo';
+import { TodoRepository } from '../../domain/todo.repository';
+import { TodoStore } from '../../domain/todo.store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -34,7 +34,7 @@ import { AddTodo } from '../../domain/messages/commands/add-todo';
       <ng-template #buttonLabel>Add Todo</ng-template>
     </button>
   `,
-    providers: [TodoFactory],
+    providers: [TodoFactory, TodoRepository],
 })
 export class TodoContainer {
     public processing$: Observable<boolean>;
@@ -43,15 +43,15 @@ export class TodoContainer {
     public form: Form;
     public readyForSubmit: boolean = false;
 
-    public constructor(formFactory: TodoFactory, private todoStore: TodoStore) {
+    public constructor(formFactory: TodoFactory, private todoStore: TodoStore, private todoRepo: TodoRepository) {
         this.form = formFactory.create();
-        this.processing$ = this.todoStore.isProcessing();
-        this.currentTodo$ = this.todoStore.currentTodo();
+        this.processing$ = this.todoRepo.isLoading$();
+        this.currentTodo$ = this.todoRepo.selectCurrentTodo$();
     }
 
     public onSubmit(todo: FormValue<Todo>): void {
         if ('VALID' === todo.status) {
-            this.todoStore.dispatch(new AddTodo({ todo: { data: todo.data, disabled: true } }));
+            this.todoStore.addTodo(todo);
         }
     }
 }

@@ -549,6 +549,41 @@
                     }
                 }
             }
+        },
+        "@ubud/sate": {
+            "root": "src/ubud/sate",
+            "sourceRoot": "src/ubud/sate/src",
+            "projectType": "library",
+            "prefix": "ubud",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "src/ubud/sate/tsconfig.lib.json",
+                        "project": "src/ubud/sate/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "src/ubud/sate/ng-package.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/ubud/sate/src/test.ts",
+                        "tsConfig": "src/ubud/sate/tsconfig.spec.json",
+                        "karmaConfig": "src/ubud/sate/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["src/ubud/sate/tsconfig.lib.json", "src/ubud/sate/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
         }
     },
     "defaultProject": "todo"

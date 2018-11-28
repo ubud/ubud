@@ -10,7 +10,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from '../../domain/models/todo';
-import { TodoStore } from '../../domain/store';
+import { TodoRepository } from '../../domain/todo.repository';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -21,11 +21,12 @@ import { TodoStore } from '../../domain/store';
         <ubud-todo-list [todos]="todos$ | async"></ubud-todo-list>
         <ubud-todo-container></ubud-todo-container>
     `,
+    providers: [TodoRepository],
 })
 export class TodoPage {
     public todos$: Observable<Todo[]>;
 
-    public constructor(private store: TodoStore) {
-        this.todos$ = this.store.findAllTodos();
+    public constructor(private todoRepo: TodoRepository) {
+        this.todos$ = this.todoRepo.selectAllTodos();
     }
 }

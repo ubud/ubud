@@ -10,7 +10,7 @@
         "e2e": "ng e2e",
         "publish:ubud": "run-p publish:ubud:*",
         "build:ubud": "run-s build:ubud:step:*",
-        "build:ubud:step:1": "run-p build:ubud:bootstrap-theme build:ubud:dropdown build:ubud:form build:ubud:http build:ubud:loader build:ubud:menus build:ubud:ngrx build:ubud:storage build:ubud:template build:ubud:utilities",
+        "build:ubud:step:1": "run-p build:ubud:bootstrap-theme build:ubud:dropdown build:ubud:form build:ubud:http build:ubud:loader build:ubud:menus build:ubud:ngrx build:ubud:storage build:ubud:template build:ubud:utilities build:ubud:sate",
         "build:ubud:step:2": "run-p build:ubud:tooltip build:ubud:user-control",
         "build:ubud:bootstrap-theme": "ncp ./src/ubud/bootstrap-theme ./dist/ubud/bootstrap-theme",
         "publish:ubud:bootstrap-theme": "npm publish dist/ubud/bootstrap-theme --access public",
@@ -36,6 +36,8 @@
         "publish:ubud:user-control": "npm publish dist/ubud/user-control --access public",
         "build:ubud:utilities": "ng build @ubud/utilities --prod",
         "publish:ubud:utilities": "npm publish dist/ubud/utilities --access public",
+        "build:ubud:sate": "ng build @ubud/sate --prod",
+        "publish:ubud:sate": "npm publish dist/ubud/sate --access public",
         "prettier": "prettier --config ./.prettierrc --write \"{src,apps}/**/*{.js,.ts,.json,.scss}\""
     },
     "private": true,
