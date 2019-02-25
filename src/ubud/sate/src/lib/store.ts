@@ -37,13 +37,19 @@ export abstract class Store<T> {
 
     public setLoading(loading: boolean): void {
         this.setState((state: (T & { ui: UiState }) & any) => {
-            return { ...state, ui: { message: '', error: false, loading: loading } };
+            return { ...state, ui: { ...state.ui, message: '', error: false, loading: loading } };
         });
     }
 
     public setError(message: string): void {
         this.setState((state: (T & { ui: UiState }) & any) => {
             return { ...state, ui: { ...state.ui, message: message, error: true } };
+        });
+    }
+
+    public resetDefaultUiState(): void {
+        this.setState((state: (T & { ui: UiState }) & any) => {
+            return { ...state, ui: { ...state.ui, message: '', error: false, loading: false } };
         });
     }
 
@@ -57,7 +63,7 @@ export abstract class Store<T> {
         this.setState(() => Object.assign({}, this.initialState));
     }
 
-    private value(): T {
+    protected value(): T {
         if (this.state) {
             return this.state.getValue();
         }
