@@ -6,7 +6,7 @@ export abstract class Repository<T> {
     protected constructor(private store: Store<T>) {}
 
     public select<R>(project: (state: T) => R): Observable<R> {
-        return this.store.state$.pipe(
+        return this.select(project).pipe(
             map(project),
             distinctUntilChanged(),
         );
