@@ -19,7 +19,7 @@ export function UbudMessage(type?: string): any {
 export function UbudStore(featureName: string): any {
     return function<T extends Type<Store<any>>>(constructor: T): typeof Store {
         return class extends constructor {
-            protected select<R>(selector: (state: T) => R): Observable<R> {
+            public select<R>(selector: (state: T) => R): Observable<R> {
                 return this.store.select(createSelector(createFeatureSelector<T>(featureName), selector));
             }
         };

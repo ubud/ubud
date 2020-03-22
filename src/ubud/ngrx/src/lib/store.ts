@@ -11,7 +11,7 @@ export abstract class Store<S> {
         this.store.dispatch(<any>message);
     }
 
-    protected select<Result>(selector: (state: S) => Result): Observable<Result> {
+    public select<Result>(selector: (state: S) => Result): Observable<Result> {
         throw new Error('Store should has select function');
     }
 }
