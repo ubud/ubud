@@ -17,7 +17,7 @@
         margin: 0;
         padding: 0;
 
-        /deep/ ubud-sidebar-menu-item {
+        ::ng-deep ubud-sidebar-menu-item {
             display: block;
 
             > li {

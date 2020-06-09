@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
 
-    /deep/ [ubudDropdownToggle] {
+    ::ng-deep [ubudDropdownToggle] {
         &:after {
             display: inline-block;
             margin-left: 0.255em;

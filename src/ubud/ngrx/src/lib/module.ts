@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
-    imports: [StoreModule.forRoot({}), EffectsModule.forRoot([]), StoreRouterConnectingModule],
+    imports: [StoreModule.forRoot({}), EffectsModule.forRoot([]), StoreRouterConnectingModule.forRoot()],
 })
 export class UbudNgrxModule {
     constructor(

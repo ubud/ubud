@@ -6,12 +6,12 @@ import { FormErrorDirective } from '../directives/form-error.directive';
 @Component({
     selector: 'ubud-form-error',
     template: `
-    <ng-container *ngIf="hasError()">
-      <ng-template ngFor [ngForOf]="[getError()]" [ngForTemplate]="!!message ? message.tpl : null">
-        <small class="text-danger">{{ getError() }}</small>
-      </ng-template>
-    </ng-container>
-  `,
+        <ng-container *ngIf="hasError()">
+            <ng-template ngFor [ngForOf]="[getError()]" [ngForTemplate]="!!message ? message.tpl : null">
+                <small class="text-danger">{{ getError() }}</small>
+            </ng-template>
+        </ng-container>
+    `,
 })
 export class FormErrorComponent {
     @Input() public control: AbstractControl | AbstractControlDirective;

@@ -1,16 +1,14 @@
 {
-    "include": ["**/*.ts", "../../src/todo/**/*.ts"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "../../out-tsc/app",
         "types": [],
         "paths": {
             "@todo/*": ["src/todo/*"],
+            // "@ubud/*": ["src/ubud/*/src/public-api.ts"]
             "@ubud/*": ["dist/ubud/*"]
         }
     },
-    "angularCompilerOptions": {
-        "disableTypeScriptVersionCheck": true
-    },
-    "exclude": ["src/test.ts", "**/*.spec.ts"]
+    "files": ["src/main.ts", "src/polyfills.ts"],
+    "include": ["src/**/*.d.ts"]
 }

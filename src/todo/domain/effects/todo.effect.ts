@@ -7,24 +7,35 @@
  * file that was distributed with this source code.
  */
 
-import { Effects } from '@ubud/ngrx';
+import { Injectable } from '@angular/core';
 import { Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs/Observable';
-import { Todo } from '../models/todo';
-import { of } from 'rxjs/observable/of';
+import { Effects, handleNavigation, Message } from '@ubud/ngrx';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Todos } from '../messages/documents/todos';
-import { Action } from '@ngrx/store';
+import { Todo } from '../models/todo';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
+@Injectable()
 export class TodoEffect extends Effects {
+    // @Effect()
+    // public navigateToTodos$: Observable<Action> = this.handleNavigation('todos', () => {
+    //     return of(
+    //         new Todos({
+    //             todos: [new Todo({ task: 'Task 1' }), new Todo({ task: 'Task 2' })],
+    //         }),
+    //     );
+    // });
+
     @Effect()
-    public navigateToTodos$: Observable<Action> = this.handleNavigation('todos', () => {
-        return of(
-            new Todos({
+    public navigateToTodos$: Observable<Message> = this.actions$.pipe(
+        handleNavigation('todos'),
+        map(() => {
+            return new Todos({
                 todos: [new Todo({ task: 'Task 1' }), new Todo({ task: 'Task 2' })],
-            }),
-        );
-    });
+            });
+        }),
+    );
 }

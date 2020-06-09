@@ -8,9 +8,10 @@
  */
 
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Todo } from '../../domain/models/todo';
 import { TodoRepository } from '../../domain/todo.repository';
+import { TodoStore } from 'src/todo/domain/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -21,12 +22,11 @@ import { TodoRepository } from '../../domain/todo.repository';
         <ubud-todo-list [todos]="todos$ | async"></ubud-todo-list>
         <ubud-todo-container></ubud-todo-container>
     `,
-    providers: [TodoRepository],
 })
 export class TodoPage {
     public todos$: Observable<Todo[]>;
 
-    public constructor(private todoRepo: TodoRepository) {
-        this.todos$ = this.todoRepo.selectAllTodos();
+    public constructor(private todoStore: TodoStore) {
+        this.todos$ = this.todoStore.findAllTodos();
     }
 }

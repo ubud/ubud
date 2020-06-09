@@ -1,6 +1,7 @@
+// @dynamic
 export abstract class Message<S = any, P extends Message<S> = any> {
-    public static TYPE: symbol = Symbol();
-    public readonly TYPE: symbol = Symbol();
+    public static TYPE: symbol;
+    public readonly TYPE!: symbol;
 
     public abstract handle(state: S): S;
 

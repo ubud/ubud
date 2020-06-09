@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '../contracts/storage';
-import { CookieService } from 'ngx-cookie';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class NgxCookieAdapter implements Storage {
-    private ubudCookie: any | null = null;
+    private ubudCookie: object | null = null;
 
     public constructor(private cookieService: CookieService) {}
 
     private setInitial(): any {
-        this.ubudCookie = this.cookieService.getObject('ubud') || {};
-        this.cookieService.putObject('ubud', this.ubudCookie);
+        this.ubudCookie = JSON.parse(this.cookieService.get('ubud')) || {};
+        this.cookieService.set('ubud', JSON.stringify(this.ubudCookie));
     }
 
     public async get<T>(key: string): Promise<T> {
         if (!this.ubudCookie) {
             this.setInitial();
-            return this.get<any>(key);
+            return this.get<T>(key);
         }
 
         return this.ubudCookie[key];
@@ -29,10 +29,10 @@ export class NgxCookieAdapter implements Storage {
         }
 
         this.ubudCookie[key] = value;
-        this.cookieService.putObject('ubud', this.ubudCookie);
+        this.cookieService.set('ubud', JSON.stringify(this.ubudCookie));
     }
 
     public async remove(key: string): Promise<void> {
-        this.set(key, undefined);
+        this.cookieService.delete(key);
     }
 }

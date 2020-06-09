@@ -8,7 +8,7 @@
  */
 
 import { Component, Input, OnInit } from '@angular/core';
-import { MediacheckService } from 'ng-mediacheck';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -32,13 +32,11 @@ export class SidebarLayout implements OnInit {
     public sidebarOpen: boolean = false;
     public small: boolean = false;
 
-    public constructor(private mediacheck: MediacheckService) {
-        this.mediacheck.initSubject();
-    }
+    public constructor(private breakpointObserver: BreakpointObserver) {}
 
     public ngOnInit(): void {
-        this.mediacheck.mq$.subscribe((mq: any) => {
-            this.small = 'small' === mq;
+        this.breakpointObserver.observe('(max-width: 767px)').subscribe(({ matches }) => {
+            this.small = matches;
             this.sidebarOpen = !this.small;
 
             if (this.small) {

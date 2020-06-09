@@ -5,16 +5,19 @@
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
+        "downlevelIteration": true,
         "experimentalDecorators": true,
-        "target": "es5",
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["es2017", "dom"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "es2015",
+        "lib": ["es2018", "dom"],
         "paths": {
-            "@ubud/*": ["dist/ubud/*"],
-            "@ubud/sate": ["dist/ubud/sate"],
-            "@ubud/sate/*": ["dist/ubud/sate/*"]
+            "@ubud/*": ["dist/ubud/*"]
         }
+    },
+    "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "strictInjectionParameters": true
     }
 }

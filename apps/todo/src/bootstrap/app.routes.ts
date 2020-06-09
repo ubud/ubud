@@ -22,7 +22,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'todos',
-                loadChildren: '@todo/todo.module#TodoModule',
+                loadChildren: () => import('@todo/todo.module').then((m) => m.TodoModule),
             },
         ],
     },

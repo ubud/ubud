@@ -11,14 +11,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SidebarModule } from 'ng-sidebar';
-import { NgMediacheckModule } from 'ng-mediacheck';
 import { SidebarLayout } from './components/layout/sidebar.layout';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @NgModule({
-    imports: [CommonModule, RouterModule, NgMediacheckModule.forRoot(), SidebarModule],
+    imports: [CommonModule, RouterModule, SidebarModule],
     declarations: [SidebarLayout],
     exports: [SidebarLayout],
 })
