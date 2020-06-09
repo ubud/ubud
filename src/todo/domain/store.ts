@@ -6,11 +6,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-import { Todo } from './models/todo';
-import { Observable } from 'rxjs/Observable';
-import { Store, UbudStore } from '@ubud/ngrx';
-import { TodoState } from './state';
 import { FormState } from '@ubud/form';
+import { Store, UbudStore } from '@ubud/ngrx';
+import { Observable } from 'rxjs';
+import { Todo } from './models/todo';
+import { TodoState } from './state';
 import { Injectable } from '@angular/core';
 
 /**

@@ -23,7 +23,6 @@
     <ng-content select="[navbarMenu]" *ngIf="!small || (small && !sidebarOpen)"></ng-content>
 </nav>
 
-
 <ng-sidebar-container [class.docked]="docked">
     <ng-sidebar [dockedSize]="dockSize" [dock]="docked" [opened]="sidebarOpen && enabled" mode="push">
         <div class="ubud-sidebar" [ngStyle]="{ width: docked ? dockSize : sidebarSize }">

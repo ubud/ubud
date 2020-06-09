@@ -16,7 +16,7 @@ import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.direct
 @Component({
     selector: 'ubud-sidebar-menu-item',
     template: `
-        <li [ngClass]="{'parent-menu': parentMenu, 'parent-menu-expanded': !collapsed}">
+        <li [ngClass]="{ 'parent-menu': parentMenu, 'parent-menu-expanded': !collapsed }">
             <a *ngIf="href; else routerItem" [attr.href]="href" (click)="toggle($event)">
                 <ng-container *ngTemplateOutlet="menuItem"></ng-container>
             </a>
@@ -27,7 +27,7 @@ import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.direct
             </ng-template>
             <ng-template #menuItem>
                 <span class="sidebar-menu-item-label">
-                    <ng-template ngFor [ngForOf]="[{title: title, iconClass: iconClass}]" [ngForTemplate]="label ? label.tpl : null">
+                    <ng-template ngFor [ngForOf]="[{ title: title, iconClass: iconClass }]" [ngForTemplate]="label ? label.tpl : null">
                         <i class="{{ iconClass }}"></i>
                         {{ title }}
                     </ng-template>
@@ -48,7 +48,7 @@ export class SidebarMenuItemComponent implements AfterContentInit {
 
     @Input() public href: string | null = null;
 
-    @ContentChild(SidebarMenuItemDirective, <any>{ descendants: false })
+    @ContentChild(SidebarMenuItemDirective)
     public label: SidebarMenuItemDirective;
 
     public collapsed: boolean = false;

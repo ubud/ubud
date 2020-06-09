@@ -10,11 +10,11 @@ export function useFactory(injector: Injector) {
         return new Proxy(
             {},
             {
-                get: function(obj, prop) {
+                get: function (obj, prop) {
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
                     return obj[prop];
                 },
-                set: function(obj, prop, value) {
+                set: function (obj, prop, value) {
                     obj[prop] = value;
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
                     return true;

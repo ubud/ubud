@@ -11,31 +11,28 @@ import { UbudDropdownModule } from '@ubud/dropdown';
 import { UbudUserControlModule } from '@ubud/user-control';
 import { routing } from './app.routes';
 import { StoreModule } from '@ngrx/store';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SidebarPage } from '../pages/sidebar.page';
 import { TopbarPage } from '../pages/topbar.page';
+import { UbudNgrxModule } from '@ubud/ngrx';
 
 @NgModule({
     declarations: [AppComponent, SidebarPage, TopbarPage],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({}),
-        EffectsModule.forRoot([]),
-        StoreDevtoolsModule.instrument(<any>{
-            maxAgent: 25,
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
             logOnly: environment.production,
         }),
-        StoreRouterConnectingModule,
         routing,
+        UbudNgrxModule.forRoot(),
         UbudTemplateModule,
         UbudSidebarMenuModule,
         UbudTooltipModule,
         UbudDropdownModule,
         UbudUserControlModule,
     ],
-    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

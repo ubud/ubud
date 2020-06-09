@@ -5,7 +5,7 @@ import { Message } from './message';
 
 @Injectable()
 export abstract class Store<S> {
-    constructor(protected store: NgrxStore<any>) {}
+    constructor(protected store: NgrxStore<S>) {}
 
     public dispatch(message: Message<S>): void {
         this.store.dispatch(<any>message);

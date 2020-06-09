@@ -11,9 +11,11 @@ import { Component } from '@angular/core';
 import { Form, FormState, FormValue } from '@ubud/form';
 import { Todo } from '../../domain/models/todo';
 import { TodoFactory } from '../../factories/todo.factory';
-import { Observable } from 'rxjs/Observable';
-import { TodoRepository } from '../../domain/todo.repository';
-import { TodoStore } from '../../domain/todo.store';
+import { Observable } from 'rxjs';
+import { TodoStore } from '../../domain/store';
+import { Todos } from 'src/todo/domain/messages/documents/todos';
+import { AddTodo } from 'src/todo/domain/messages/commands/add-todo';
+import { FormBuilder } from '@angular/forms';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -21,20 +23,22 @@ import { TodoStore } from '../../domain/todo.store';
 @Component({
     selector: 'ubud-todo-container',
     template: `
-    <ubud-todo-form #todoForm
-                    [form]="form"
-                    [todo]="currentTodo$ | async"
-                    (valueChanges)="readyForSubmit = 'VALID' === $event.status"
-                    (submitted)="onSubmit($event)">
-    </ubud-todo-form>
-    <button class="btn btn-success" [disabled]="!readyForSubmit || (processing$ | async)" (click)="todoForm.submit()">
-      <ng-container *ngIf="processing$ | async; else buttonLabel">
-        <ubud-loader-component></ubud-loader-component>
-      </ng-container>
-      <ng-template #buttonLabel>Add Todo</ng-template>
-    </button>
-  `,
-    providers: [TodoFactory, TodoRepository],
+        <ubud-todo-form
+            #todoForm
+            [form]="form"
+            [todo]="currentTodo$ | async"
+            (valueChanges)="readyForSubmit = 'VALID' === $event.status"
+            (submitted)="onSubmit($event)"
+        >
+        </ubud-todo-form>
+        <button class="btn btn-success" [disabled]="!readyForSubmit || (processing$ | async)" (click)="todoForm.submit()">
+            <ng-container *ngIf="processing$ | async; else buttonLabel">
+                <ubud-loader-component></ubud-loader-component>
+            </ng-container>
+            <ng-template #buttonLabel>Add Todo</ng-template>
+        </button>
+    `,
+    providers: [TodoFactory],
 })
 export class TodoContainer {
     public processing$: Observable<boolean>;
@@ -43,15 +47,19 @@ export class TodoContainer {
     public form: Form;
     public readyForSubmit: boolean = false;
 
-    public constructor(formFactory: TodoFactory, private todoStore: TodoStore, private todoRepo: TodoRepository) {
+    public constructor(formFactory: TodoFactory, private todoStore: TodoStore) {
         this.form = formFactory.create();
-        this.processing$ = this.todoRepo.isLoading$();
-        this.currentTodo$ = this.todoRepo.selectCurrentTodo$();
+        this.processing$ = this.todoStore.isProcessing();
+        this.currentTodo$ = this.todoStore.currentTodo();
     }
 
     public onSubmit(todo: FormValue<Todo>): void {
         if ('VALID' === todo.status) {
-            this.todoStore.addTodo(todo);
+            this.todoStore.dispatch(
+                new AddTodo({
+                    todo,
+                }),
+            );
         }
     }
 }

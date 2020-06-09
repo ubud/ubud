@@ -7,12 +7,12 @@
  * file that was distributed with this source code.
  */
 
-import { ActivatedRouteSnapshot } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
-import { Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { catchError, filter, switchMap } from 'rxjs/operators';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { Actions, ofType } from '@ngrx/effects';
+import { ROUTER_NAVIGATION } from '@ngrx/router-store';
+import { Observable, of } from 'rxjs';
+import { catchError, filter, mergeMap } from 'rxjs/operators';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -22,16 +22,14 @@ export class Effects {
     public constructor(protected actions$: Actions) {}
 
     protected handleNavigation(segment: string, callback: (state: any) => Observable<any>): Observable<any> {
-        const nav: any = this.actions$.ofType(ROUTER_NAVIGATION).pipe(
+        return this.actions$.pipe(
+            ofType(ROUTER_NAVIGATION),
             filter((router: any) => {
                 const url = this.buildCurrentUri(router.payload.routerState.root);
                 if (null !== url) {
                     let currentUrl = url.split(';')[0];
 
-                    const pattern = segment
-                        .replace(/\:/g, ':')
-                        .replace(/\/\//g, '/')
-                        .replace(/\//g, '\\/');
+                    const pattern = segment.replace(/\:/g, ':').replace(/\/\//g, '/').replace(/\//g, '\\/');
                     const regex = new RegExp(`^${pattern}$`);
                     // const pattern = segment.replace(/\//g, '\\\/');
 
@@ -44,10 +42,7 @@ export class Effects {
 
                 return false;
             }),
-        );
-
-        return nav.pipe(
-            switchMap((action: any) => callback(this.collectParams(action.payload.routerState.root))),
+            mergeMap((action: any) => callback(this.collectParams(action.payload.routerState.root))),
             catchError((e: any) => {
                 console.log('Network error', e);
                 return of();

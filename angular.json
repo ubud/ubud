@@ -4,34 +4,13 @@
     "newProjectRoot": "src",
     "projects": {
         "todo": {
-            "root": "apps/todo/",
+            "root": "apps/todo",
             "sourceRoot": "apps/todo/src",
             "projectType": "application",
             "prefix": "todo",
             "schematics": {
                 "@schematics/angular:component": {
-                    "inlineTemplate": true,
-                    "inlineStyle": true,
-                    "styleext": "scss",
-                    "spec": false
-                },
-                "@schematics/angular:class": {
-                    "spec": false
-                },
-                "@schematics/angular:directive": {
-                    "spec": false
-                },
-                "@schematics/angular:guard": {
-                    "spec": false
-                },
-                "@schematics/angular:module": {
-                    "spec": false
-                },
-                "@schematics/angular:pipe": {
-                    "spec": false
-                },
-                "@schematics/angular:service": {
-                    "spec": false
+                    "style": "scss"
                 }
             },
             "architect": {
@@ -43,6 +22,7 @@
                         "main": "apps/todo/src/main.ts",
                         "polyfills": "apps/todo/src/polyfills.ts",
                         "tsConfig": "apps/todo/tsconfig.app.json",
+                        "aot": true,
                         "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
                         "styles": ["apps/todo/src/styles.scss"],
                         "scripts": []
@@ -60,7 +40,6 @@
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
-                            "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true
@@ -99,33 +78,20 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": ["apps/todo/tsconfig.app.json", "apps/todo/tsconfig.spec.json"],
+                        "tsConfig": ["apps/todo/tsconfig.app.json", "apps/todo/tsconfig.spec.json", "apps/todo/e2e/tsconfig.json"],
                         "exclude": ["**/node_modules/**"]
                     }
-                }
-            }
-        },
-        "todo-e2e": {
-            "root": "apps/todo-e2e/",
-            "projectType": "application",
-            "architect": {
+                },
                 "e2e": {
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
-                        "protractorConfig": "apps/todo-e2e/protractor.conf.js",
+                        "protractorConfig": "apps/todo/e2e/protractor.conf.js",
                         "devServerTarget": "todo:serve"
                     },
                     "configurations": {
                         "production": {
                             "devServerTarget": "todo:serve:production"
                         }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": "apps/todo-e2e/tsconfig.e2e.json",
-                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -144,7 +110,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/bootstrap-theme/ng-package.prod.json"
+                            "tsConfig": "src/ubud/bootstrap-theme/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -179,7 +145,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/dropdown/ng-package.prod.json"
+                            "tsConfig": "src/ubud/dropdown/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -214,7 +180,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/form/ng-package.prod.json"
+                            "tsConfig": "src/ubud/form/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -249,7 +215,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/http/ng-package.prod.json"
+                            "tsConfig": "src/ubud/http/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -284,7 +250,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/loader/ng-package.prod.json"
+                            "tsConfig": "src/ubud/loader/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -319,7 +285,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/menus/ng-package.prod.json"
+                            "tsConfig": "src/ubud/menus/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -354,7 +320,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/ngrx/ng-package.prod.json"
+                            "tsConfig": "src/ubud/ngrx/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -389,7 +355,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/storage/ng-package.prod.json"
+                            "tsConfig": "src/ubud/storage/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -424,7 +390,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/template/ng-package.prod.json"
+                            "tsConfig": "src/ubud/template/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -459,7 +425,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/tooltip/ng-package.prod.json"
+                            "tsConfig": "src/ubud/tooltip/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -494,7 +460,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/user-control/ng-package.prod.json"
+                            "tsConfig": "src/ubud/user-control/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -529,7 +495,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/utilities/ng-package.prod.json"
+                            "tsConfig": "src/ubud/utilities/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -564,7 +530,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "project": "src/ubud/sate/ng-package.prod.json"
+                            "tsConfig": "src/ubud/sate/tsconfig.lib.prod.json"
                         }
                     }
                 },

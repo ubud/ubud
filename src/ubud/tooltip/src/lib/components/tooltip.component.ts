@@ -17,14 +17,15 @@ import { TooltipOptions } from '../models/tooltip-options';
 @Component({
     selector: 'ubud-tooltip',
     template: `
-        <div class="tooltip bs-tooltip-{{ placement }}"
-             role="tooltip"
-             [ngStyle]="{top: top, left: left, display: display}"
-             [ngClass]="classes">
-
+        <div
+            class="tooltip bs-tooltip-{{ placement }}"
+            role="tooltip"
+            [ngStyle]="{ top: top, left: left, display: display }"
+            [ngClass]="classes"
+        >
             <div class="arrow"></div>
             <div class="tooltip-inner" *ngIf="content">
-                {{content}}
+                {{ content }}
             </div>
         </div>
     `,

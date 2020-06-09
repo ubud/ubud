@@ -17,7 +17,7 @@ import { Component, Input } from '@angular/core';
     template: `
         <ubud-dropdown [(show)]="show">
             <a [class.active]="show" ubudDropdownToggle>
-                <img [height]="size" class="rounded-circle" [src]="image"/>
+                <img [height]="size" class="rounded-circle" [src]="image" />
             </a>
 
             <ng-content></ng-content>
