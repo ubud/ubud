@@ -10,12 +10,12 @@ export function useFactory(injector: Injector) {
         return new Proxy(
             {},
             {
-                get(obj, prop) {
+                get(obj: Record<string, unknown>, prop: string) {
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
 
                     return obj[prop];
                 },
-                set(obj, prop, value) {
+                set(obj: Record<string, unknown>, prop: string, value: unknown) {
                     obj[prop] = value;
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
 
@@ -46,10 +46,10 @@ export class WindowService {
     }
 
     public btoa(msg: string): string {
-        return null;
+        return '';
     }
 
-    public scrollTo(a: number, b: number) {
+    public scrollTo(a: number, b: number): null {
         return null;
     }
 

@@ -30,7 +30,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SidebarMenuComponent {
     @Input() public collapsible = true;
-    @Input() public title: string;
+    @Input() public title: string = '';
     @Input() public collapsed = false;
 
     public toggle(): void {

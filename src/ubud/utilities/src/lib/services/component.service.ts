@@ -26,7 +26,7 @@ import {
     providedIn: 'root',
 })
 export class ComponentService {
-    private root: ViewContainerRef;
+    private root!: ViewContainerRef;
 
     public constructor(
         private readonly applicationRef: ApplicationRef,

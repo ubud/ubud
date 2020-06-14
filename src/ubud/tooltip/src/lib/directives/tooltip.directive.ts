@@ -29,7 +29,7 @@ import { TooltipOptions } from '../models/tooltip-options';
     selector: '[ubudTooltip]',
 })
 export class TooltipDirective {
-    @Input('ubudTooltip') public content: string;
+    @Input('ubudTooltip') public content?: string;
 
     @Input('tooltipPlacement') public placement: any = 'top';
 
@@ -38,7 +38,7 @@ export class TooltipDirective {
     @Output() public tooltipStateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     private visible = false;
-    private tooltip: ComponentRef<any>;
+    private tooltip!: ComponentRef<any>;
 
     public constructor(
         private readonly viewContainerRef: ViewContainerRef,

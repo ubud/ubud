@@ -9,7 +9,7 @@ import { TodoState } from '../../state';
  */
 @UbudMessage()
 export class AddTodo extends Message<TodoState> {
-    public todo: FormState<Todo>;
+    public todo!: FormState<Todo>;
 
     public handle(state: TodoState): TodoState {
         return { ...state, processing: true, currentTodoForm: this.todo };

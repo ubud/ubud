@@ -22,5 +22,5 @@ import { Todo } from '../../domain/models/todo';
     `,
 })
 export class TodoForm extends FormComponent<Todo> {
-    @Input() public todo: FormState<Todo>;
+    @Input() public todo!: FormState<Todo>;
 }

@@ -7,7 +7,7 @@ export abstract class FormComponent<T> {
     @Output() public submitted: EventEmitter<FormValue<T>> = new EventEmitter();
     @Output() public valueChanges: EventEmitter<FormValue<T>> = new EventEmitter();
 
-    public _form: Form;
+    public _form!: Form;
 
     public get form(): Form {
         return this._form;

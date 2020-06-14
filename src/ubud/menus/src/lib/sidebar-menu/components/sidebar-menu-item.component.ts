@@ -40,24 +40,24 @@ import { SidebarMenuComponent } from './sidebar-menu.component';
     `,
 })
 export class SidebarMenuItemComponent implements AfterContentInit {
-    @Input() public title: string;
+    @Input() public title: string = '';
 
-    @Input() public iconClass: string;
+    @Input() public iconClass: string = '';
 
     @Input() public routerLink: string | null = null;
 
-    @Input() public routerLinkActive = 'sidebar-menu-item-active';
+    @Input() public routerLinkActive: string = 'sidebar-menu-item-active';
 
     @Input() public href: string | null = null;
 
     @ContentChild(SidebarMenuItemDirective)
-    public label: SidebarMenuItemDirective;
+    public label!: SidebarMenuItemDirective;
 
-    public collapsed = false;
+    public collapsed: boolean = false;
 
-    public parentMenu = false;
+    public parentMenu: boolean = false;
 
-    @ContentChild(SidebarMenuComponent) private readonly subMenu: SidebarMenuComponent;
+    @ContentChild(SidebarMenuComponent) private readonly subMenu!: SidebarMenuComponent;
 
     public ngAfterContentInit(): void {
         if (this.subMenu) {

@@ -17,7 +17,7 @@ import { TodoState } from './state';
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-const INITIAL_STATE = { todos: [], processing: false, currentTodoForm: null };
+const INITIAL_STATE: TodoState = { todos: [], processing: false, currentTodoForm: null };
 
 const reducer = createReducer<TodoState>(Todos, AddTodo, TodoAdded);
 

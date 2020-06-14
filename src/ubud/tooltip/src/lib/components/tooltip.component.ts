@@ -37,11 +37,11 @@ export class TooltipComponent implements AfterViewInit {
     public top = '-1000px';
     public left = '-1000px';
     public display = 'block';
-    public content: string;
-    public placement: 'top' | 'bottom' | 'left' | 'right';
+    public content?: string;
+    public placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 
-    private readonly hostEl: ElementRef;
-    private readonly appendToBody: boolean;
+    private readonly hostEl!: ElementRef;
+    private readonly appendToBody: boolean = false;
 
     public constructor(private readonly el: ElementRef, private readonly cdr: ChangeDetectorRef, private readonly options: TooltipOptions) {
         Object.assign(this, options);

@@ -26,9 +26,9 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['../styles/user-control.scss'],
 })
 export class UserControlComponent {
-    @Input() public size: number;
+    @Input() public size?: number;
 
-    @Input() public image: string;
+    @Input() public image?: string;
 
-    public show = false;
+    public show: boolean = false;
 }

@@ -5,7 +5,7 @@ import { TodoState } from '../../state';
 
 @UbudMessage()
 export class TodoAdded extends Message<TodoState> {
-    public todo: Todo;
+    public todo!: Todo;
 
     public handle(state: TodoState): TodoState {
         return {

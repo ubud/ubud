@@ -17,7 +17,7 @@ import { TodoState } from '../../state';
  */
 @UbudMessage()
 export class Todos extends Message<TodoState> {
-    public todos: Todo[];
+    public todos!: Todo[];
 
     public handle(state: TodoState): TodoState {
         return { ...state, todos: this.todos };

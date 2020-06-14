@@ -12,10 +12,10 @@ import { ElementRef } from '@angular/core';
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 export class TooltipOptions {
-    public placement: 'top' | 'bottom' | 'left' | 'right';
-    public content: string;
-    public appendToBody: boolean;
-    public hostEl: ElementRef;
+    public placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+    public content?: string;
+    public appendToBody?: boolean;
+    public hostEl?: ElementRef;
 
     public constructor(options: TooltipOptions) {
         Object.assign(this, options);

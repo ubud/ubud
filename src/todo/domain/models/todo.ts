@@ -10,7 +10,7 @@
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 export class Todo {
-    public task: string;
+    public task!: string;
 
     public constructor(data: Partial<Todo>) {
         Object.assign(this, data);

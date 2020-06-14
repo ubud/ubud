@@ -1,13 +1,11 @@
+import { Type } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { OperatorFunction, pipe } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import { Message } from './message';
-import { MessageClass } from './types';
-
-export function ubudType<T>(constructor: MessageClass<T>): OperatorFunction<any, Message<T>> {
+export function ubudType<T>(constructor: Type<T> & { TYPE: symbol }): OperatorFunction<any, T> {
     return filter((a) => a.TYPE === constructor.TYPE);
 }
 

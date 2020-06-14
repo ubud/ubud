@@ -19,18 +19,18 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['../../styles/sidebar-layout.scss'],
 })
 export class SidebarLayout implements OnInit {
-    @Input() public sidebarSize: string;
+    @Input() public sidebarSize?: string;
 
-    @Input() public dockSize: string;
+    @Input() public dockSize?: string;
 
-    @Input() public docked = false;
+    @Input() public docked: boolean = false;
 
     @Input() public brandRoute: string | null = null;
 
-    @Input() public enabled = true;
+    @Input() public enabled: boolean = true;
 
-    public sidebarOpen = false;
-    public small = false;
+    public sidebarOpen: boolean = false;
+    public small: boolean = false;
 
     public constructor(private readonly breakpointObserver: BreakpointObserver) {}
 
