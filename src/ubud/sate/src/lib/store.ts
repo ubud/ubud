@@ -1,4 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { UiState } from './states';
 
 export abstract class Store<T> {
@@ -37,13 +38,13 @@ export abstract class Store<T> {
 
     public setLoading(loading: boolean): void {
         this.setState((state: (T & { ui: UiState }) & any) => {
-            return { ...state, ui: { ...state.ui, message: '', error: false, loading: loading } };
+            return { ...state, ui: { ...state.ui, message: '', error: false, loading } };
         });
     }
 
     public setError(message: string): void {
         this.setState((state: (T & { ui: UiState }) & any) => {
-            return { ...state, ui: { ...state.ui, message: message, error: true } };
+            return { ...state, ui: { ...state.ui, message, error: true } };
         });
     }
 
@@ -55,12 +56,12 @@ export abstract class Store<T> {
 
     public resetUi(): void {
         this.setState((state: (T & { ui: UiState }) & any) => {
-            return { ...state, ui: (<any>this.initialState).ui };
+            return { ...state, ui: (this.initialState as any).ui };
         });
     }
 
     public resetState(): void {
-        this.setState(() => Object.assign({}, this.initialState));
+        this.setState(() => ({ ...this.initialState }));
     }
 
     protected value(): T {

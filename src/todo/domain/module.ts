@@ -8,12 +8,13 @@
  */
 
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { TodoEffect } from './effects/todo.effect';
-import { TodoStore } from './store';
-import { todoReducer } from './reducers';
+import { StoreModule } from '@ngrx/store';
+
 import { AddTodoEffect } from './effects/add-todo.effect';
+import { TodoEffect } from './effects/todo.effect';
+import { todoReducer } from './reducers';
+import { TodoStore } from './store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

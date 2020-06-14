@@ -1,18 +1,19 @@
-import { Rule as RuleContract } from './contracts/rule';
 import { AbstractControl, AbstractControlDirective } from '@angular/forms';
+
 import { ErrorMessages } from './contracts/error-messages';
+import { Rule as RuleContract } from './contracts/rule';
 
 export abstract class Rule implements RuleContract {
     public abstract readonly errorMessages: ErrorMessages;
 
-    protected defaultErrorMessage: string = 'Attribute :attribute: is :constraint:';
+    protected defaultErrorMessage = 'Attribute :attribute: is :constraint:';
 
     public hasError(control: AbstractControlDirective | AbstractControl): boolean {
         return !!control.errors && (!!control.dirty || !!control.touched);
     }
 
     public getError(control: AbstractControlDirective | AbstractControl): string | null {
-        const errors = Object.keys(<any>control.errors).map((field: string) => {
+        const errors = Object.keys(control.errors as any).map((field: string) => {
             if (null !== control.errors && control.errors.hasOwnProperty(field)) {
                 return this.getMessage(field, control.errors[field], control);
             }
@@ -50,7 +51,7 @@ export abstract class Rule implements RuleContract {
     }
 
     protected getFormControlName(control: AbstractControl): string | null {
-        const formGroup = <any>control.parent.controls;
+        const formGroup = control.parent.controls as any;
 
         return Object.keys(formGroup).find((name: string) => control === formGroup[name]) || null;
     }

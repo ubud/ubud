@@ -1,11 +1,12 @@
 import { HttpBackend, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { UbudHttpConfig } from '../common/config';
 
 class UbudHttpInterceptingHandler implements HttpHandler {
     private chain: HttpHandler | null = null;
 
-    constructor(private backend: HttpBackend, private interceptors: HttpInterceptor[]) {}
+    constructor(private readonly backend: HttpBackend, private readonly interceptors: HttpInterceptor[]) {}
 
     public handle(request: HttpRequest<any>): Observable<HttpEvent<any>> {
         if (!this.chain) {

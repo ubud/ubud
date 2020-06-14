@@ -1,5 +1,6 @@
 import { Component, ContentChild, Input } from '@angular/core';
 import { AbstractControl, AbstractControlDirective } from '@angular/forms';
+
 import { Rule } from '../contracts/rule';
 import { FormErrorDirective } from '../directives/form-error.directive';
 

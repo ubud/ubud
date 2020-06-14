@@ -7,8 +7,10 @@
  * file that was distributed with this source code.
  */
 import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
-import { SidebarMenuComponent } from './sidebar-menu.component';
+
 import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.directive';
+
+import { SidebarMenuComponent } from './sidebar-menu.component';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -44,18 +46,18 @@ export class SidebarMenuItemComponent implements AfterContentInit {
 
     @Input() public routerLink: string | null = null;
 
-    @Input() public routerLinkActive: string = 'sidebar-menu-item-active';
+    @Input() public routerLinkActive = 'sidebar-menu-item-active';
 
     @Input() public href: string | null = null;
 
     @ContentChild(SidebarMenuItemDirective)
     public label: SidebarMenuItemDirective;
 
-    public collapsed: boolean = false;
+    public collapsed = false;
 
-    public parentMenu: boolean = false;
+    public parentMenu = false;
 
-    @ContentChild(SidebarMenuComponent) private subMenu: SidebarMenuComponent;
+    @ContentChild(SidebarMenuComponent) private readonly subMenu: SidebarMenuComponent;
 
     public ngAfterContentInit(): void {
         if (this.subMenu) {

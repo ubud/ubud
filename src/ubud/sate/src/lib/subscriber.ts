@@ -3,8 +3,8 @@ import { Observable, Subscription } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class Subscriber {
-    private ctx: Object[] = [];
-    private subscriptions: { [key: string]: Subscription[] } = {};
+    private readonly ctx: Object[] = [];
+    private readonly subscriptions: { [key: string]: Subscription[] } = {};
 
     public subscribe(ctx: Object, observable: Observable<any>): Subscription {
         const sub = observable.subscribe();

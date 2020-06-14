@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '../contracts/storage';
 import { CookieService } from 'ngx-cookie-service';
+
+import { Storage } from '../contracts/storage';
 
 @Injectable()
 export class NgxCookieAdapter implements Storage {
     private ubudCookie: object | null = null;
 
-    public constructor(private cookieService: CookieService) {}
+    public constructor(private readonly cookieService: CookieService) {}
 
     private setInitial(): any {
         this.ubudCookie = JSON.parse(this.cookieService.get('ubud')) || {};
@@ -16,6 +17,7 @@ export class NgxCookieAdapter implements Storage {
     public async get<T>(key: string): Promise<T> {
         if (!this.ubudCookie) {
             this.setInitial();
+
             return this.get<T>(key);
         }
 
@@ -25,6 +27,7 @@ export class NgxCookieAdapter implements Storage {
     public async set<T>(key: string, value: T): Promise<void> {
         if (!this.ubudCookie) {
             this.setInitial();
+
             return this.set(key, value);
         }
 

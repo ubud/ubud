@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, take } from 'rxjs/operators';
-import { Store } from './store';
+
 import { UiState } from './states';
+import { Store } from './store';
 
 export abstract class Repository<T> {
-    protected constructor(private store: Store<T>) {}
+    protected constructor(private readonly store: Store<T>) {}
 
     public select<R>(project: (state: T) => R): Observable<R> {
         return this.store.state$.pipe(map(project), distinctUntilChanged());

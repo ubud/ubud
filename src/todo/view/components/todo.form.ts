@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Todo } from '../../domain/models/todo';
 import { FormComponent, FormState } from '@ubud/form';
+
+import { Todo } from '../../domain/models/todo';
 
 @Component({
     selector: 'ubud-todo-form',

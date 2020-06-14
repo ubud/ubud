@@ -1,6 +1,7 @@
+import { Injectable, Type } from '@angular/core';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Type, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Store } from './store';
 
 // tslint:disable:function-name

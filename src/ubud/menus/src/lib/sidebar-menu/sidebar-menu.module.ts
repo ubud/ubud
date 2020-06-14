@@ -7,11 +7,12 @@
  * file that was distributed with this source code.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SidebarMenuComponent } from './components/sidebar-menu.component';
+
 import { SidebarMenuItemComponent } from './components/sidebar-menu-item.component';
+import { SidebarMenuComponent } from './components/sidebar-menu.component';
 import { SidebarMenuItemDirective } from './directives/sidebar-menu-item.directive';
 
 /**

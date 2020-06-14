@@ -112,7 +112,6 @@ export class PositionService {
                     top: hostElPos.top - targetElHeight,
                     left: width[pos1](),
                 };
-                break;
         }
 
         return newPosition;

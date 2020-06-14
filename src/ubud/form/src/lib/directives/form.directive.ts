@@ -1,5 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, FormGroupDirective } from '@angular/forms';
+
 import { FormState } from '../contracts/form-state';
 
 @Directive({
@@ -23,7 +24,7 @@ export class FormDirective {
                 }
 
                 if ('undefined' !== typeof value.disabled) {
-                    if (true === value.disabled) {
+                    if (value.disabled) {
                         this.formGroupDirective.form.disable();
                     } else {
                         this.formGroupDirective.form.enable();
@@ -33,5 +34,5 @@ export class FormDirective {
         });
     }
 
-    public constructor(private formGroupDirective: FormGroupDirective) {}
+    public constructor(private readonly formGroupDirective: FormGroupDirective) {}
 }

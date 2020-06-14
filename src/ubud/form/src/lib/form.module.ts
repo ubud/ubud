@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { FormErrorComponent } from './components/form-error.component';
 import { FormErrorDirective } from './directives/form-error.directive';
 import { FormDirective } from './directives/form.directive';

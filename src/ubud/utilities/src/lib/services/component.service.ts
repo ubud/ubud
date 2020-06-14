@@ -28,7 +28,10 @@ import {
 export class ComponentService {
     private root: ViewContainerRef;
 
-    public constructor(private applicationRef: ApplicationRef, private componentFactoryResolver: ComponentFactoryResolver) {}
+    public constructor(
+        private readonly applicationRef: ApplicationRef,
+        private readonly componentFactoryResolver: ComponentFactoryResolver,
+    ) {}
 
     public set rootViewContainer(root: ViewContainerRef) {
         this.root = root;

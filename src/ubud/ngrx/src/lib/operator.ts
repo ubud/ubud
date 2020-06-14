@@ -3,6 +3,7 @@ import { ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { OperatorFunction, pipe } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+
 import { Message } from './message';
 import { MessageClass } from './types';
 
@@ -28,18 +29,18 @@ function buildCurrentUri(route: ActivatedRouteSnapshot): string {
 
 function collectParams(route: ActivatedRouteSnapshot): { params: object; queryParams: object; data: object } {
     const data = {
-        params: Object.assign({}, route.params || {}),
-        queryParams: Object.assign({}, route.queryParams || {}),
-        data: Object.assign({}, route.data || {}),
+        params: { ...(route.params || {}) },
+        queryParams: { ...(route.queryParams || {}) },
+        data: { ...(route.data || {}) },
     };
 
     if (route.children) {
         route.children.forEach((item: ActivatedRouteSnapshot) => {
             const collected = collectParams(item);
 
-            data.data = Object.assign(data.data, collected.data);
-            data.params = Object.assign(data.params, collected.params);
-            data.queryParams = Object.assign(data.queryParams, collected.queryParams);
+            data.data = { ...data.data, ...collected.data };
+            data.params = { ...data.params, ...collected.params };
+            data.queryParams = { ...data.queryParams, ...collected.queryParams };
         });
     }
 

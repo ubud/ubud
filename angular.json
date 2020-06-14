@@ -96,41 +96,6 @@
                 }
             }
         },
-        "@ubud/bootstrap-theme": {
-            "root": "src/ubud/bootstrap-theme",
-            "sourceRoot": "src/ubud/bootstrap-theme/src",
-            "projectType": "library",
-            "prefix": "ubud",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "src/ubud/bootstrap-theme/tsconfig.lib.json",
-                        "project": "src/ubud/bootstrap-theme/ng-package.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "tsConfig": "src/ubud/bootstrap-theme/tsconfig.lib.prod.json"
-                        }
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/ubud/bootstrap-theme/src/test.ts",
-                        "tsConfig": "src/ubud/bootstrap-theme/tsconfig.spec.json",
-                        "karmaConfig": "src/ubud/bootstrap-theme/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["src/ubud/bootstrap-theme/tsconfig.lib.json", "src/ubud/bootstrap-theme/tsconfig.spec.json"],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
-            }
-        },
         "@ubud/dropdown": {
             "root": "src/ubud/dropdown",
             "sourceRoot": "src/ubud/dropdown/src",

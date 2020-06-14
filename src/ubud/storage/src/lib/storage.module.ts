@@ -1,4 +1,5 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf, Type } from '@angular/core';
+
 import { Storage } from './contracts/storage';
 
 @NgModule()

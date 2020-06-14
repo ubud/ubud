@@ -7,8 +7,9 @@
  * file that was distributed with this source code.
  */
 
-import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { SidebarPage } from '../pages/sidebar.page';
 import { TopbarPage } from '../pages/topbar.page';
 

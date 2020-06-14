@@ -8,14 +8,15 @@
  */
 
 import { Component } from '@angular/core';
-import { Form, FormState, FormValue } from '@ubud/form';
-import { Todo } from '../../domain/models/todo';
-import { TodoFactory } from '../../factories/todo.factory';
-import { Observable } from 'rxjs';
-import { TodoStore } from '../../domain/store';
-import { Todos } from 'src/todo/domain/messages/documents/todos';
-import { AddTodo } from 'src/todo/domain/messages/commands/add-todo';
 import { FormBuilder } from '@angular/forms';
+import { Form, FormState, FormValue } from '@ubud/form';
+import { Observable } from 'rxjs';
+import { AddTodo } from 'src/todo/domain/messages/commands/add-todo';
+import { Todos } from 'src/todo/domain/messages/documents/todos';
+
+import { Todo } from '../../domain/models/todo';
+import { TodoStore } from '../../domain/store';
+import { TodoFactory } from '../../factories/todo.factory';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -45,9 +46,9 @@ export class TodoContainer {
     public currentTodo$: Observable<FormState<Todo> | null>;
 
     public form: Form;
-    public readyForSubmit: boolean = false;
+    public readyForSubmit = false;
 
-    public constructor(formFactory: TodoFactory, private todoStore: TodoStore) {
+    public constructor(formFactory: TodoFactory, private readonly todoStore: TodoStore) {
         this.form = formFactory.create();
         this.processing$ = this.todoStore.isProcessing();
         this.currentTodo$ = this.todoStore.currentTodo();

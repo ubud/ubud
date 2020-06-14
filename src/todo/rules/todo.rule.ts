@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-import { ErrorMessages, Rule } from '@ubud/form';
 import { Validators } from '@angular/forms';
+import { ErrorMessages, Rule } from '@ubud/form';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

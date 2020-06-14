@@ -30,5 +30,5 @@ export class UserControlComponent {
 
     @Input() public image: string;
 
-    public show: boolean = false;
+    public show = false;
 }

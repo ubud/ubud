@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Repository } from '@ubud/sate';
+import { Observable } from 'rxjs';
+
+import { FormState } from '../../ubud/form/src/lib/contracts/form-state';
+
+import { Todo } from './models/todo';
 import { TodoState } from './state';
 import { TodoStore } from './todo.store';
-import { Observable } from 'rxjs';
-import { Todo } from './models/todo';
-import { FormState } from '../../ubud/form/src/lib/contracts/form-state';
 
 @Injectable()
 export class TodoRepository extends Repository<TodoState> {

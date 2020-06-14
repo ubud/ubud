@@ -7,14 +7,15 @@
  * file that was distributed with this source code.
  */
 
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { UbudFormModule } from '@ubud/form';
-import { CommonModule } from '@angular/common';
+import { UbudLoaderModule } from '@ubud/loader';
+
+import { TodoListComponent } from './components/todo-list.component';
 import { TodoForm } from './components/todo.form';
 import { TodoContainer } from './containers/todo.container';
 import { TodoPage } from './pages/todo.page';
-import { TodoListComponent } from './components/todo-list.component';
-import { UbudLoaderModule } from '@ubud/loader';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
