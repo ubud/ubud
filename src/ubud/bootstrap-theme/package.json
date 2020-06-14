@@ -1,6 +1,6 @@
 {
     "name": "@ubud/bootstrap-theme",
-    "version": "2.0.1",
+    "version": "3.0.0-rc.0",
     "peerDependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
         "bootstrap": "^4.5.0"
