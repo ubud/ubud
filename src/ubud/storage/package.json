@@ -1,6 +1,6 @@
 {
     "name": "@ubud/storage",
-    "version": "3.0.0-rc.0",
+    "version": "3.0.0",
     "peerDependencies": {
         "@angular/common": "^9.1.9",
         "@angular/core": "^9.1.9",
