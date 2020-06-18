@@ -1,5 +1,6 @@
 import { Component, ContentChild, Input } from '@angular/core';
 import { AbstractControl, AbstractControlDirective } from '@angular/forms';
+
 import { Rule } from '../contracts/rule';
 import { FormErrorDirective } from '../directives/form-error.directive';
 
@@ -14,11 +15,11 @@ import { FormErrorDirective } from '../directives/form-error.directive';
     `,
 })
 export class FormErrorComponent {
-    @Input() public control: AbstractControl | AbstractControlDirective;
+    @Input() public control!: AbstractControl | AbstractControlDirective;
 
-    @Input() public rules: Rule[];
+    @Input() public rules: Rule[] = [];
 
-    @ContentChild(FormErrorDirective) public message: FormErrorDirective;
+    @ContentChild(FormErrorDirective) public message!: FormErrorDirective;
 
     public hasError(): boolean {
         return this.rules.some((rule: Rule) => {

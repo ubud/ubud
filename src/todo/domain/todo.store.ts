@@ -1,8 +1,10 @@
-import { Store } from '@ubud/sate';
-import { TodoState } from './state';
 import { Injectable } from '@angular/core';
-import { Todo } from './models/todo';
+import { Store } from '@ubud/sate';
+
 import { FormState } from '../../ubud/form/src/lib/contracts/form-state';
+
+import { Todo } from './models/todo';
+import { TodoState } from './state';
 
 @Injectable({ providedIn: 'root' })
 export class TodoStore extends Store<TodoState> {

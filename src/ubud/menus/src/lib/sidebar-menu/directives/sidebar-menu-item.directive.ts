@@ -16,5 +16,6 @@ import { ContentChild, Directive, TemplateRef } from '@angular/core';
     selector: '[ubudSidebarMenuItem]',
 })
 export class SidebarMenuItemDirective {
-    @ContentChild(TemplateRef) public tpl: TemplateRef<any>;
+    @ContentChild(TemplateRef)
+    public tpl!: TemplateRef<unknown>;
 }

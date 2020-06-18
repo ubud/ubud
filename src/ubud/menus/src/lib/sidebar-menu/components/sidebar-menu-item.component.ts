@@ -7,8 +7,10 @@
  * file that was distributed with this source code.
  */
 import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
-import { SidebarMenuComponent } from './sidebar-menu.component';
+
 import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.directive';
+
+import { SidebarMenuComponent } from './sidebar-menu.component';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -38,9 +40,9 @@ import { SidebarMenuItemDirective } from '../directives/sidebar-menu-item.direct
     `,
 })
 export class SidebarMenuItemComponent implements AfterContentInit {
-    @Input() public title: string;
+    @Input() public title: string = '';
 
-    @Input() public iconClass: string;
+    @Input() public iconClass: string = '';
 
     @Input() public routerLink: string | null = null;
 
@@ -49,13 +51,13 @@ export class SidebarMenuItemComponent implements AfterContentInit {
     @Input() public href: string | null = null;
 
     @ContentChild(SidebarMenuItemDirective)
-    public label: SidebarMenuItemDirective;
+    public label!: SidebarMenuItemDirective;
 
     public collapsed: boolean = false;
 
     public parentMenu: boolean = false;
 
-    @ContentChild(SidebarMenuComponent) private subMenu: SidebarMenuComponent;
+    @ContentChild(SidebarMenuComponent) private readonly subMenu!: SidebarMenuComponent;
 
     public ngAfterContentInit(): void {
         if (this.subMenu) {

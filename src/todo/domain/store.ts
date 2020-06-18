@@ -6,12 +6,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+import { Injectable } from '@angular/core';
 import { FormState } from '@ubud/form';
 import { Store, UbudStore } from '@ubud/ngrx';
 import { Observable } from 'rxjs';
+
 import { Todo } from './models/todo';
 import { TodoState } from './state';
-import { Injectable } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

@@ -7,8 +7,9 @@
  * file that was distributed with this source code.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { TooltipComponent } from './components/tooltip.component';
 import { TooltipDirective } from './directives/tooltip.directive';
 

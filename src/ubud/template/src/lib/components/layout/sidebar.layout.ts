@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, Input, OnInit } from '@angular/core';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -19,9 +19,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
     styleUrls: ['../../styles/sidebar-layout.scss'],
 })
 export class SidebarLayout implements OnInit {
-    @Input() public sidebarSize: string;
+    @Input() public sidebarSize?: string;
 
-    @Input() public dockSize: string;
+    @Input() public dockSize?: string;
 
     @Input() public docked: boolean = false;
 
@@ -32,7 +32,7 @@ export class SidebarLayout implements OnInit {
     public sidebarOpen: boolean = false;
     public small: boolean = false;
 
-    public constructor(private breakpointObserver: BreakpointObserver) {}
+    public constructor(private readonly breakpointObserver: BreakpointObserver) {}
 
     public ngOnInit(): void {
         this.breakpointObserver.observe('(max-width: 767px)').subscribe(({ matches }) => {

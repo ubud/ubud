@@ -8,6 +8,7 @@
  */
 
 import { NgModule } from '@angular/core';
+
 import { UbudSidebarTemplateModule } from './sidebar-template.module';
 import { UbudTopbarTemplateModule } from './topbar-template.module';
 

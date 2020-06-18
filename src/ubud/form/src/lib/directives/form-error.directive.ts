@@ -4,5 +4,5 @@ import { ContentChild, Directive, TemplateRef } from '@angular/core';
     selector: '[ubudFormError]',
 })
 export class FormErrorDirective {
-    @ContentChild(TemplateRef) public tpl: TemplateRef<any>;
+    @ContentChild(TemplateRef) public tpl!: TemplateRef<unknown>;
 }

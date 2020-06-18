@@ -7,9 +7,10 @@
  * file that was distributed with this source code.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { UbudDropdownModule } from '@ubud/dropdown';
+
 import { UserControlComponent } from './components/user-control.component';
 
 /**

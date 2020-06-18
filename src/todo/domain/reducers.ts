@@ -7,16 +7,17 @@
  * file that was distributed with this source code.
  */
 
-import { TodoState } from './state';
-import { Todos } from './messages/documents/todos';
-import { AddTodo } from './messages/commands/add-todo';
-import { TodoAdded } from './messages/events/todo-added';
 import { createReducer, Message } from '@ubud/ngrx';
+
+import { AddTodo } from './messages/commands/add-todo';
+import { Todos } from './messages/documents/todos';
+import { TodoAdded } from './messages/events/todo-added';
+import { TodoState } from './state';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-const INITIAL_STATE = { todos: [], processing: false, currentTodoForm: null };
+const INITIAL_STATE: TodoState = { todos: [], processing: false, currentTodoForm: null };
 
 const reducer = createReducer<TodoState>(Todos, AddTodo, TodoAdded);
 

@@ -9,6 +9,7 @@
 
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 import { positionService } from '@ubud/utilities';
+
 import { TooltipOptions } from '../models/tooltip-options';
 
 /**
@@ -33,16 +34,16 @@ import { TooltipOptions } from '../models/tooltip-options';
 })
 export class TooltipComponent implements AfterViewInit {
     public classes: any;
-    public top: string = '-1000px';
-    public left: string = '-1000px';
-    public display: string = 'block';
-    public content: string;
-    public placement: 'top' | 'bottom' | 'left' | 'right';
+    public top = '-1000px';
+    public left = '-1000px';
+    public display = 'block';
+    public content?: string;
+    public placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 
-    private hostEl: ElementRef;
-    private appendToBody: boolean;
+    private readonly hostEl!: ElementRef;
+    private readonly appendToBody: boolean = false;
 
-    public constructor(private el: ElementRef, private cdr: ChangeDetectorRef, private options: TooltipOptions) {
+    public constructor(private readonly el: ElementRef, private readonly cdr: ChangeDetectorRef, private readonly options: TooltipOptions) {
         Object.assign(this, options);
         this.classes = { 'scale-in': false, in: false };
         this.classes[options.placement] = true;

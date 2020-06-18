@@ -1,11 +1,9 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Type, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store } from './store';
+import { createFeatureSelector, createSelector, Selector } from '@ngrx/store';
+import { MessageClass } from './types';
 
 // tslint:disable:function-name
 export function UbudMessage(type?: string): any {
-    return function (target) {
+    return function <T>(target: MessageClass<T>) {
         const messageSymbol: symbol = Symbol(type || target.name);
 
         target.TYPE = messageSymbol;
@@ -15,8 +13,8 @@ export function UbudMessage(type?: string): any {
 }
 
 export function UbudStore(featureName: string): ClassDecorator {
-    return function (target) {
-        target.prototype.select = function (selector) {
+    return function (target: Function) {
+        target.prototype.select = function (selector: Selector<unknown, unknown>) {
             return this.store.select(createSelector(createFeatureSelector(featureName), selector));
         };
     };

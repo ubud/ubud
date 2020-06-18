@@ -45,6 +45,7 @@ export class Effects {
             mergeMap((action: any) => callback(this.collectParams(action.payload.routerState.root))),
             catchError((e: any) => {
                 console.log('Network error', e);
+
                 return of();
             }),
         );
@@ -68,18 +69,18 @@ export class Effects {
 
     private collectParams(route: ActivatedRouteSnapshot): { params: object; queryParams: object; data: object } {
         const data = {
-            params: Object.assign({}, route.params || {}),
-            queryParams: Object.assign({}, route.queryParams || {}),
-            data: Object.assign({}, route.data || {}),
+            params: { ...(route.params || {}) },
+            queryParams: { ...(route.queryParams || {}) },
+            data: { ...(route.data || {}) },
         };
 
         if (route.children) {
             route.children.forEach((item: ActivatedRouteSnapshot) => {
                 const collected = this.collectParams(item);
 
-                data.data = Object.assign(data.data, collected.data);
-                data.params = Object.assign(data.params, collected.params);
-                data.queryParams = Object.assign(data.queryParams, collected.queryParams);
+                data.data = { ...data.data, ...collected.data };
+                data.params = { ...data.params, ...collected.params };
+                data.queryParams = { ...data.queryParams, ...collected.queryParams };
             });
         }
 

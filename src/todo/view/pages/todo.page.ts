@@ -9,9 +9,10 @@
 
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TodoStore } from 'src/todo/domain/store';
+
 import { Todo } from '../../domain/models/todo';
 import { TodoRepository } from '../../domain/todo.repository';
-import { TodoStore } from 'src/todo/domain/store';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -26,7 +27,7 @@ import { TodoStore } from 'src/todo/domain/store';
 export class TodoPage {
     public todos$: Observable<Todo[]>;
 
-    public constructor(private todoStore: TodoStore) {
+    public constructor(private readonly todoStore: TodoStore) {
         this.todos$ = this.todoStore.findAllTodos();
     }
 }

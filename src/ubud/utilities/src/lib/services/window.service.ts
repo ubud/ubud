@@ -1,5 +1,5 @@
-import { Injectable, Injector, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Injectable, Injector, OnDestroy, PLATFORM_ID } from '@angular/core';
 
 interface Interface extends OnDestroy {}
 
@@ -10,13 +10,15 @@ export function useFactory(injector: Injector) {
         return new Proxy(
             {},
             {
-                get: function (obj, prop) {
+                get(obj: Record<string, unknown>, prop: string) {
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
+
                     return obj[prop];
                 },
-                set: function (obj, prop, value) {
+                set(obj: Record<string, unknown>, prop: string, value: unknown) {
                     obj[prop] = value;
                     console.warn(`Should avoid use window.${prop.toString()} on SSR`);
+
                     return true;
                 },
             },
@@ -33,7 +35,7 @@ export class WindowService {
     public navigator: any = {};
     public location: any = {};
 
-    public dataLayer: Array<any> = [];
+    public dataLayer: any[] = [];
 
     public alert(msg: string) {
         return;
@@ -44,14 +46,14 @@ export class WindowService {
     }
 
     public btoa(msg: string): string {
+        return '';
+    }
+
+    public scrollTo(a: number, b: number): null {
         return null;
     }
 
-    public scrollTo(a: number, b: number) {
-        return null;
-    }
-
-    public open(...args: Array<any>): any {
+    public open(...args: any[]): any {
         return null;
     }
 

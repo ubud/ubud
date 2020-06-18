@@ -7,16 +7,17 @@
  * file that was distributed with this source code.
  */
 
-import { TodoState } from '../../state';
-import { Todo } from '../../models/todo';
 import { Message, UbudMessage } from '@ubud/ngrx';
+
+import { Todo } from '../../models/todo';
+import { TodoState } from '../../state';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
 @UbudMessage()
 export class Todos extends Message<TodoState> {
-    public todos: Todo[];
+    public todos!: Todo[];
 
     public handle(state: TodoState): TodoState {
         return { ...state, todos: this.todos };

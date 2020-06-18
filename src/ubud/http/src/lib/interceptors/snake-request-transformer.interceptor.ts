@@ -16,7 +16,7 @@ export class SnakeRequestTransformerInterceptor implements HttpInterceptor {
 
     private toSnake(data: any): any {
         if (data instanceof FormData) {
-            const arr: any[] = Array.from((<any>data).entries());
+            const arr: any[] = Array.from((data as any).entries());
 
             return arr.reduce((acc, [key, val]) => {
                 const newKey = key.replace(/([A-Z])/g, (m: string) => '_' + m.toLowerCase());

@@ -18,8 +18,9 @@ import {
     ViewContainerRef,
 } from '@angular/core';
 import { ComponentService } from '@ubud/utilities';
-import { TooltipOptions } from '../models/tooltip-options';
+
 import { TooltipComponent } from '../components/tooltip.component';
+import { TooltipOptions } from '../models/tooltip-options';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
@@ -28,21 +29,21 @@ import { TooltipComponent } from '../components/tooltip.component';
     selector: '[ubudTooltip]',
 })
 export class TooltipDirective {
-    @Input('ubudTooltip') public content: string;
+    @Input('ubudTooltip') public content?: string;
 
     @Input('tooltipPlacement') public placement: any = 'top';
 
-    @Input() public appendToBody: boolean = false;
+    @Input() public appendToBody = false;
 
     @Output() public tooltipStateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    private visible: boolean = false;
-    private tooltip: ComponentRef<any>;
+    private visible = false;
+    private tooltip!: ComponentRef<any>;
 
     public constructor(
-        private viewContainerRef: ViewContainerRef,
-        private componentService: ComponentService,
-        private changeDetectorRef: ChangeDetectorRef,
+        private readonly viewContainerRef: ViewContainerRef,
+        private readonly componentService: ComponentService,
+        private readonly changeDetectorRef: ChangeDetectorRef,
     ) {}
 
     @HostListener('focusin')

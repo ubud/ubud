@@ -1,5 +1,6 @@
-import { ErrorMessages } from './error-messages';
 import { AbstractControl, AbstractControlDirective } from '@angular/forms';
+
+import { ErrorMessages } from './error-messages';
 
 export interface Rule {
     readonly errorMessages: ErrorMessages;

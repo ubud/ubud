@@ -7,10 +7,11 @@
  * file that was distributed with this source code.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopbarLayout } from './components/layout/topbar.layout';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { TopbarLayout } from './components/layout/topbar.layout';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

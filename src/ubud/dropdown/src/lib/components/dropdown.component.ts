@@ -35,9 +35,9 @@ export class DropdownComponent {
         this.showChange.emit(this.showValue);
     }
 
-    private showValue: boolean = false;
+    private showValue = false;
 
-    public constructor(private el: ElementRef) {}
+    public constructor(private readonly el: ElementRef) {}
 
     @HostListener('document:click', ['$event'])
     public onDocumentClick(e: any): void {

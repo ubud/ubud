@@ -7,8 +7,9 @@
  * file that was distributed with this source code.
  */
 
-import { Todo } from './models/todo';
 import { FormState } from '@ubud/form';
+
+import { Todo } from './models/todo';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

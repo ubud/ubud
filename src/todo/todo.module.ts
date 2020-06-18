@@ -7,11 +7,12 @@
  * file that was distributed with this source code.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { UbudTodoDomainModule } from './domain/module';
 import { routing } from './todo.routes';
 import { UbudTodoViewModule } from './view/module';
-import { UbudTodoDomainModule } from './domain/module';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>

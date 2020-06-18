@@ -6,9 +6,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-import { RouterModule, Routes } from '@angular/router';
-import { TodoPage } from './view/pages/todo.page';
 import { ModuleWithProviders } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { TodoPage } from './view/pages/todo.page';
 
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
