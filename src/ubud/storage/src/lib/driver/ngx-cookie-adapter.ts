@@ -5,7 +5,7 @@ import { Storage } from '../contracts/storage';
 
 @Injectable()
 export class NgxCookieAdapter implements Storage {
-    private ubudCookie: object | null = null;
+    private ubudCookie: Record<string, any> | null = null;
 
     public constructor(private readonly cookieService: CookieService) {}
 
