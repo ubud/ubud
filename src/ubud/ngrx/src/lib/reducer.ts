@@ -9,7 +9,7 @@ export function createReducer<S>(...messages: Array<MessageClass<S>>): (state: S
     }, {} as Record<symbol, boolean>);
 
     return (state: S, action: Message<S>) => {
-        if (Object.hasOwnProperty(action.TYPE)) {
+        if (cache.hasOwnProperty(action.TYPE)) {
             return action.handle(state);
         }
 
