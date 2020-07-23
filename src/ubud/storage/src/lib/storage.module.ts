@@ -14,7 +14,7 @@ export class UbudStorageModule {
         }
     }
 
-    public static forRoot(impl: Type<Storage>): ModuleWithProviders {
+    public static forRoot(impl: Type<Storage>): ModuleWithProviders<UbudStorageModule> {
         return {
             ngModule: UbudStorageModule,
             providers: [
